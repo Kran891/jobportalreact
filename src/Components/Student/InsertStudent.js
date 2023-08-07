@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import './InsertStudent.css';
 function InsertStudent() {
+  const [skillSet, setSkillSet]=useState ([]);
+  function addSkill(event) {
+    
+  }
     return <div class="container">
     <div class="apply_box">
       <h1>
@@ -9,34 +13,6 @@ function InsertStudent() {
       </h1>
       <form action="#">
         <div class="form_container">
-          <div class="form_control">
-            <label for="first_name"> First Name </label>
-            <input
-              id="first_name"
-              name="first_name"
-              placeholder="Enter First Name..."
-            />
-            <span id="first_name_error" class="error"></span>
-          </div>
-          <div class="form_control">
-            <label for="last_name"> Last Name </label>
-            <input
-              id="last_name"
-              name="last_name"
-              placeholder="Enter Last Name..."
-            />
-            <span id="last_name_error" class="error"></span>
-          </div>
-          <div class="form_control">
-            <label for="email"> Email </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter Email..."
-            />
-            <span id="email_error" class="error"></span>
-          </div>
           <div class="form_control">
             <label for="skills"> Skill Set </label>
             <input
@@ -47,6 +23,9 @@ function InsertStudent() {
             />
             <span id="skills_error" class="error"></span>
           </div>
+          <div class="button_container">
+          <button type="button"onclick={addSkill}>Add Skill</button>
+        </div>
           <div class="textarea_control">
             <label for="address"> Address </label>
             <textarea
