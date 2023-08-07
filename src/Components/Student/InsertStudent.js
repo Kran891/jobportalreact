@@ -1,4 +1,5 @@
 import React from "react";
+import './InsertStudent.css';
 function InsertStudent() {
     return <div class="container">
     <div class="apply_box">
