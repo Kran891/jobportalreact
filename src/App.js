@@ -7,6 +7,7 @@ import Student from './Components/Student/Student';
 import Home from './Components/Home/Home';
 import InsertStudent from './Components/Student/InsertStudent';
 import PostJob from './Components/Company/PostJob';
+import InsertInterview from './Components/Company/InsertInterView';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/student' Component={Student} />
         <Route path='/student/insertstudent' Component={InsertStudent} /> 
         <Route path='/company/postjob' Component={PostJob} />
+        <Route path='/company/insertinsertview/:appliedJob' Component={InsertInterview} />
       </Routes>
     </BrowserRouter>
   );
