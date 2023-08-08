@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { InsertUser } from "./UserServer";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 function Signup(){
+    const navigate=useNavigate();
     const [user,setuser]=useState({
         FirstName:"",
         LastName:"",
@@ -16,7 +18,7 @@ function Signup(){
       user.Age=calculateAge(user.Age);
     
        InsertUser(user);
-       
+       navigate("/student/insertstudent");
       event.preventDefault();
     }
     function handleChange(event){
