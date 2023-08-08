@@ -13,6 +13,7 @@ async function InsertStudent(data){
         body:JSON.stringify(data)
       }
       ).then(async res=>await res.json())
+      
       .then(async result=>{
         const nummsg =await result;
         return nummsg;       
