@@ -24,3 +24,4 @@ async function InsertJob(data){
         console.error("Error: ",err);
     }
 }
+export {InsertJob};

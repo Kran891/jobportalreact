@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { InsertJob } from './CompanyServer';
 import './PostJob.css';
 
 function PostJob() {
@@ -16,6 +17,7 @@ function PostJob() {
         event.preventDefault();
         postjob.CompanyId=localStorage.CompanyId;
         // Add your form submission logic here
+        await InsertJob(postjob);
     }
 
     function handleChange(event) {
