@@ -16,6 +16,7 @@ function PostJob() {
     async function handleSubmit(event) {
         event.preventDefault();
         postjob.CompanyId=localStorage.CompanyId;
+        postjob.RequiredSkills=skillSet;
         // Add your form submission logic here
         await InsertJob(postjob);
     }
