@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import './InsertStudent.css';
+import { InsertStudentData } from "./StudentServer";
 
 function InsertStudent() {
   const [skillSet, setSkillSet] = useState([]);
   const [preferredLocations, setPreferredLocations] = useState([]);
   const [studentData, setStudentData] = useState({
     StudentId: localStorage.userId,
-    studentskills: skillSet,
+    studentskills: "",
     ResumeFile: null,
     skill: "",
     address:"",
@@ -14,7 +15,7 @@ function InsertStudent() {
     city:"",
     Address:"",
     preferredLocation: "",
-    preferredLocations:preferredLocations
+    preferredLocations:""
   });
 
   function addSkill(event) {
@@ -50,13 +51,14 @@ function InsertStudent() {
     setSkillSet(prevValues => prevValues.filter(x => x !== value));
   }
   async function handleSubmit(event){
-    event.preventDefault();
+   
     studentData.Address=studentData.address+","+studentData.city+"-"+studentData.pincode;
     studentData.studentskills=skillSet;
     studentData.preferredLocations=preferredLocations;
     studentData.StudentId=localStorage.userId;
-    console.log(studentData);
-   await InsertStudent(studentData);
+   console.log(studentData);
+  
+   await InsertStudentData(studentData);
    
   }
   return (

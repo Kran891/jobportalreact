@@ -1,5 +1,6 @@
 import API from "../API";
-async function InsertStudent(data){
+
+async function InsertStudentData(data){
     try{
         var headers={
             
@@ -26,4 +27,4 @@ async function InsertStudent(data){
         console.error("Error: ",err);
     }
 }
-export{InsertStudent}
+export{InsertStudentData}
