@@ -26,3 +26,4 @@ async function InsertStudent(data){
         console.error("Error: ",err);
     }
 }
+export{InsertStudent}

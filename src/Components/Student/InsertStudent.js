@@ -49,13 +49,14 @@ function InsertStudent() {
     const { value } = event.target;
     setSkillSet(prevValues => prevValues.filter(x => x !== value));
   }
-  function handleSubmit(event){
+  async function handleSubmit(event){
     event.preventDefault();
     studentData.Address=studentData.address+","+studentData.city+"-"+studentData.pincode;
     studentData.studentskills=skillSet;
     studentData.preferredLocations=preferredLocations;
     studentData.StudentId=localStorage.userId;
     console.log(studentData);
+    InsertStudent(studentData);
   }
   return (
     <div className="container">
