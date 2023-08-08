@@ -56,7 +56,8 @@ function InsertStudent() {
     studentData.preferredLocations=preferredLocations;
     studentData.StudentId=localStorage.userId;
     console.log(studentData);
-    InsertStudent(studentData);
+   await InsertStudent(studentData);
+   
   }
   return (
     <div className="container">
