@@ -2,16 +2,16 @@ import API from "../API";
 
 async function InsertStudentData(data){
     try{
-        var headers={
-            
-        }
+       const formData=new FormData();
+       formData.append("studentModel", JSON.stringify(data));
+        formData.append("ResumeFile", data.ResumeFile);
       const response=fetch(API+"student/insertstudentdetails",
       {
         method:'POST',
         headers:{
             'Content-Type':'application/json'
         },
-        body:JSON.stringify(data)
+        body:formData
       }
       ).then(async res=>await res.json())
 

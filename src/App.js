@@ -6,6 +6,7 @@ import Company from './Components/Company/Company';
 import Student from './Components/Student/Student';
 import Home from './Components/Home/Home';
 import InsertStudent from './Components/Student/InsertStudent';
+import PostJob from './Components/Company/PostJob';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/company' Component={Company} />
         <Route path='/student' Component={Student} />
         <Route path='/student/insertstudent' Component={InsertStudent} /> 
+        <Route path='/company/postjob' Component={PostJob} />
       </Routes>
     </BrowserRouter>
   );

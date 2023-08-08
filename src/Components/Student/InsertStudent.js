@@ -51,7 +51,7 @@ function InsertStudent() {
     setSkillSet(prevValues => prevValues.filter(x => x !== value));
   }
   async function handleSubmit(event){
-   
+   event.preventDefault();
     studentData.Address=studentData.address+","+studentData.city+"-"+studentData.pincode;
     studentData.studentskills=skillSet;
     studentData.preferredLocations=preferredLocations;
