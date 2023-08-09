@@ -5,7 +5,14 @@ import { LoginUserData } from "./UserServer";
 function Login(props){
     var navigate=useNavigate();
     async function LoginUser(event){ 
-
+   setTimeout(() => {
+    if(localStorage.role==="student")
+   navigate("/student/insertstudent");
+  else if(localStorage.role==="admin")
+  navigate("/admin");
+  else if(localStorage.role==="company")
+  navigate("/cpmpany/insertcompany");
+   }, 3000);
    event.preventDefault();
    await  LoginUserData();
    

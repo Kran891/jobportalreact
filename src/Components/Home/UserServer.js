@@ -14,7 +14,8 @@ async function InsertUser(data){
       }
       ).then(async res=>await res.json())
       .then(async result=>{
-        const {token,userId}=await result;
+        const {token,role,userId}=await result;
+        localStorage.setItem("role",role);
         localStorage.setItem("userId",userId);
         localStorage.setItem("token",token);
         return userId;
@@ -43,7 +44,8 @@ async function LoginUserData(data){
     }
     ).then(async res=>await res.json())
     .then(async result=>{
-      const {token,userId}=await result;
+      const {token,role,userId}=await result;
+      localStorage.setItem("role",role);
       localStorage.setItem("userId",userId);
       localStorage.setItem("token",token);
       return userId;

@@ -20,11 +20,11 @@ function Signup(){
        InsertUser(user);
        setTimeout(() => {
         if(localStorage.role==="student")
-          navigate("/student/insertstudent");
-        
+       navigate("/student/insertstudent");
+      else if(localStorage.role==="company")
+      navigate("/company/insertcompany");
        }, 3000);
-       
-      event.preventDefault();
+       event.preventDefault();
     }
     function handleChange(event){
         const {name,value}=event.target;
