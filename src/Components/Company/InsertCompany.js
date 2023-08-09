@@ -28,9 +28,18 @@ function InsertCompany(){
   }
   function addLoc(event){
     const value=cdata.Loc;
+    setcdata(p=>{
+     return{
+      ...p,
+      Loc:""
+     }
+    })
     setCLoc(p=>{
       return [...p,value]
     })
+  }
+  function removeItem(item){
+    setCLoc(p=>[...p.filter(x=>x!=item)])
   }
   return <div>
     <form onSubmit={handleSubmit}>
@@ -49,8 +58,8 @@ function InsertCompany(){
     <button type="button" onClick={addLoc} >Add Location</button>
     {cLoc.length>0 && <label>Location</label>}
     <ul>
-    {cLoc.map(x=>{
-      return <li>{x}</li>
+    {cLoc.map((x)=>{
+      return <li onClick={()=>{removeItem(x)}}>{x}</li>
     })}
     </ul>
     <button type="submit">Submit</button>
