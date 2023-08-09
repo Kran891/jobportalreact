@@ -1,5 +1,5 @@
 import API from "../API";
-async function GetJobsByLocation(Location,userId){
+async function GetJobsByLocation(location,userId){
   const response=fetch(API+"student/getjobsbylocation/"+location+"/"+userId,
   {
       method:'GET',
@@ -71,16 +71,15 @@ async function GetInterviewsScheduled(userId){
 
 async function InsertStudentData(data){
     try{
-       const formData=new FormData();
-       formData.append("studentModel", JSON.stringify(data));
-        formData.append("ResumeFile", data.ResumeFile);
+      
+     
       const response=fetch(API+"student/insertstudentdetails",
       {
         method:'POST',
         headers:{
             'Content-Type':'application/json'
         },
-        body:formData
+        body:JSON.stringify(data)
       }
       ).then(async res=>await res.json())
 

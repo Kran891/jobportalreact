@@ -8,7 +8,7 @@ function InsertStudent() {
   const [studentData, setStudentData] = useState({
     StudentId: localStorage.userId,
     studentskills: "",
-    ResumeFile: null,
+    
     skill: "",
     address:"",
     pincode:"",
@@ -146,15 +146,7 @@ function InsertStudent() {
               />
               <span id="pincode_error" className="error"></span>
             </div>
-            <div className="form_control">
-              <label htmlFor="upload"> Upload Your CV </label>
-              <input
-                type="file"
-                id="upload"
-                name="ResumeFile"
-                onInput={handleChange}
-              />
-            </div>
+            
           </div>
           <div className="button_container">
             <button type="submit">Apply Now</button>
