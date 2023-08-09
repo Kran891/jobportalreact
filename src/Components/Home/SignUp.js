@@ -18,7 +18,12 @@ function Signup(){
       user.Age=calculateAge(user.Age);
     
        InsertUser(user);
-       navigate("/student/insertstudent");
+       setTimeout(() => {
+        if(localStorage.role==="student")
+          navigate("/student/insertstudent");
+        
+       }, 3000);
+       
       event.preventDefault();
     }
     function handleChange(event){
