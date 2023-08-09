@@ -7,11 +7,11 @@ function Login(props){
     async function LoginUser(event){ 
    setTimeout(() => {
     if(localStorage.role==="student")
-   navigate("/student/insertstudent");
+   navigate("/student");
   else if(localStorage.role==="admin")
   navigate("/admin");
   else if(localStorage.role==="company")
-  navigate("/cpmpany/insertcompany");
+  navigate("/company");
    }, 3000);
    event.preventDefault();
    await  LoginUserData();
