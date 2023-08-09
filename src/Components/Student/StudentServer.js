@@ -1,4 +1,73 @@
 import API from "../API";
+async function GetJobsByLocation(Location,userId){
+  const response=fetch(API+"student/getjobsbylocation/"+location+"/"+userId,
+  {
+      method:'GET',
+      headers:{
+          'Content-Type':'application/json'
+      }
+  }
+  ).then(res=>res.json)
+  .then(result=>{
+      return result;
+  })
+}
+
+async function GetAllJobs(userId){
+  const response=fetch(API+"student/getalljobs/"+userId,
+  {
+      method:'GET',
+      headers:{
+          'Content-Type':'application/json'
+      }
+  }
+  ).then(res=>res.json)
+  .then(result=>{
+      return result;
+  })
+}
+
+async function GetJobsByYourSkills(userId){
+  const response=fetch(API+"student/getjobsbyyuorskills/"+userId,
+  {
+      method:'GET',
+      headers:{
+          'Content-Type':'application/json'
+      }
+  }
+  ).then(res=>res.json)
+  .then(result=>{
+      return result;
+  })
+}
+
+async function GetAppliedJobs(userId){
+  const response=fetch(API+"student/getappliedjobs/"+userId,
+  {
+      method:'GET',
+      headers:{
+          'Content-Type':'application/json'
+      }
+  }
+  ).then(res=>res.json)
+  .then(result=>{
+      return result;
+  })
+}
+
+async function GetInterviewsScheduled(userId){
+  const response=fetch(API+"student/getinterviewsscheduled/"+userId,
+  {
+      method:'GET',
+      headers:{
+          'Content-Type':'application/json'
+      }
+  }
+  ).then(res=>res.json)
+  .then(result=>{
+      return result;
+  })
+}
 
 async function InsertStudentData(data){
     try{
