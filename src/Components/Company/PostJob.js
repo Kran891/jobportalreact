@@ -37,63 +37,31 @@ function PostJob() {
     return (
         <div className="post-job-container">
             <h1>Job Posting</h1>
-            <form id="post-job-form" onSubmit={handleSubmit}>
-                <label htmlFor="jobTitle">Job Title</label>
-                <input
-                    type="text"
-                    
-                    name="Title"
-                    value={postjob.Title}
-                    onChange={handleChange}
-                    required
-                />
-
-                <label htmlFor="jobSalary">Job Salary</label>
-                <input
-                    type="text"
-                    
-                    name="Salary"
-                    value={postjob.Salary}
-                    onChange={handleChange}
-                    required
-                />
-
-                <span id="jobTitle-error" className="error"></span>
-
-                <label htmlFor="description">Description</label>
-                <textarea
-                    
-                    name="Description"
-                    value={postjob.Description}
-                    onChange={handleChange}
-                    rows="4"
-                    required
-                ></textarea>
-                <span id="description-error" className="error"></span>
-
-                <label htmlFor="skillsRequired">Skills Required</label>
-                <div className="skills-input-container">
-                    <input
-                        type="text"
-                        
-                        name="skill"
-                        value={postjob.skill}
-                        onChange={handleChange}
-                        required
-                    />
-                    <button type="button" onClick={addSkill} className="add-skill-button">Add Skill</button>
-                </div>
-                <label htmlFor="skillsarray"> Skills </label>
-              <ul>
-                {skillSet.map(ele => (
-                  <li key={ele}>
-                    {ele}
-                  </li>
-                ))}
-              </ul>
-                <span id="skillsRequired-error" className="error"></span>
-
-                <button type="submit">POST JOB</button>
+            <form onSubmit={handleSubmit}>
+              
+              <label>Job Title</label>
+              <input
+              type="text"
+              name="Title"
+              onChange={handleChange}
+              value={postjob.Title}
+               />
+              <label>Salary</label>
+              <input 
+                type="number"
+                name='Salary'
+                onChange={handleChange}
+                value={postjob.Salary}
+              />
+              <label>Description</label>
+              <textarea 
+               rows="4"
+               cols="50"
+               name='Description'
+               onChange={handleChange}
+               value={postjob.Description}
+              ></textarea>
+              <button type="submit">Add Job</button>
             </form>
         </div>
     );

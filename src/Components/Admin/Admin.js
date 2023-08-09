@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Company/PostJob.css';
 
 function Admin() {
-    const [showDiv1, setShowDiv1] = useState(false);
+    const [disdata,setdisData]=useState();
+    useEffect(()=>{
+    
+    },[]);
+    const [showDiv1, setShowDiv1] = useState(true);
     const [showDiv2, setShowDiv2] = useState(false);
     const [showDiv3, setShowDiv3] = useState(false);
 

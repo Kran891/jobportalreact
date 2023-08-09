@@ -39,7 +39,7 @@ async function InsertCompanyData(data){
         headers:{
             'Content-Type':'application/json'
         },
-        body:JSON.stringify(headers)
+        body:JSON.stringify(data)
       }
       );
      
@@ -63,7 +63,7 @@ async function InsertInterviewData(data){
       }
       ).then(async res=>await res.json())
       .then(async result=>{
-        
+
         return result;
   
       }
