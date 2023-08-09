@@ -1,106 +1,61 @@
 import React, { useState } from "react";
-import '../Home/styles.css';
 import { InsertCompanyData } from "./CompanyServer";
-function InsertCompany()
- {
-    const [CompanyData, setCompanyData] = useState({
-        OwnerId: localStorage.userId,
-        Name: "",
-        Description:"",
-        CompanyId:"",
-        CompanyLocations: "",
-        Location:""
-        
-      });
-    const [CompanyLocations, setLocations] = useState([]
-    );
 
-    function addLocations(event) {
-        const value = CompanyData.Location;
-        setLocations(prevValues => [...prevValues, value]);
-}
-   function handleChange (event){
-    const{name,value}=event.target;
-    setCompanyData(prevValues => ({
-        ...prevValues,
-        [name]: value
-      }))
 
-   }
-
-   async function handleSubmit (event){
-    event.preventDefault();
-     CompanyData.CompanyLocations=CompanyLocations;
-     
-    console.log(CompanyData);
-   
-    await InsertCompanyData(CompanyData);
+function InsertCompany(){
+  const [cLoc,setCLoc]=useState([]);
+  const [cdata,setcdata]=useState({
+    Name:"",
+    Description:"",
+    OwnerId:"",
+    CompanyLocations:cLoc,
+    Loc:""
+  })
+  function handleChange(event){
+    const {name,value}=event.target;
+    setcdata(pre=>{
+      return{
+        ...pre,
+        [name]:value
+      }
+    })
+  }
+  async function handleSubmit(event){
+    cdata.OwnerId=localStorage.userId;
+    cdata.CompanyLocations=[...new Set(cLoc)];
+    await InsertCompanyData(cdata);
+    event.preventDefualt();
+  }
+  function addLoc(event){
+    const value=cdata.Loc;
+    setCLoc(p=>{
+      return [...p,value]
+    })
+  }
+  return <div>
+    <form onSubmit={handleSubmit}>
+    <label>Company Name</label>
+    <input type="text" name="Name" onChange={handleChange} value={cdata.Name} />
+    <label>Description</label>
+    <textarea name="Description"
+    rows="4"
+    cols="50"
+    onChange={handleChange}
+    value={cdata.Description}
+    >
+    </textarea>
+    <label>Company Locations</label>
+    <input type="text" name="Loc" onChange={handleChange} value={cdata.Loc} />
+    <button type="button" onClick={addLoc} >Add Location</button>
+    {cLoc.length>0 && <label>Location</label>}
+    <ul>
+    {cLoc.map(x=>{
+      return <li>{x}</li>
+    })}
+    </ul>
+    <button type="submit">Submit</button>
     
-   }
-    return <div class="container">
-    <div class="apply_box">
-      <h1>
-        Add Company
-        <span class="title_small"></span>
-      </h1>
-      <form action="#">
-        <div class="form_container">
-          <div class="form_control">
-            <label for="company_name"> Company Name </label>
-            <input onChange={handleChange}
-              id="company_name"
-              name="Name"
-              value={CompanyData.Name}
-              placeholder="Enter Company Name..."
-            />
-            <span id="company_name_error" class="error"></span>
-          </div>
-          
-         
-         
-          <div class="textarea_control">
-            <label for="description"> Description </label>
-            <textarea
-              id="description"
-              name="Description"
-              value={CompanyData.Description}
-              rows="4"
-              cols="50"
-              placeholder="Enter Description"
-            ></textarea>
-            <span class="error"></span>
-          </div>
-
-          <div class="form_control">
-            <label for="location"> Location </label>
-            <input onChange={handleChange}
-              type="text"
-              id="location"
-              name="Location"
-              value={CompanyData.Location}
-              placeholder="Enter Location..."
-            />
-            <span class="error"></span>
-          </div>
-
-          <div className="button_container">
-                <button type="button" onClick={addLocations}>Add location</button>
-              </div>
-              <label htmlFor="locationssarray"> Locations </label>
-              <ul>
-                {CompanyLocations.map(ele => (
-                  <li key={ele} >
-                    {ele}
-                  </li>
-                ))}
-              </ul>
-              <span id="locations_error" className="error"></span>
-            </div>
-        <div class="button_container">
-          <button type="submit">Apply Now</button>
-        </div>
-      </form>
-    </div>
+    </form>
   </div>
-} 
+}
 export default InsertCompany;

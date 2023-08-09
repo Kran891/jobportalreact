@@ -19,9 +19,9 @@ function Signup(){
     
        InsertUser(user);
        setTimeout(() => {
-        if(localStorage.role==="student")
+        if(localStorage.role==="Student")
        navigate("/student/insertstudent");
-      else if(localStorage.role==="company")
+      else if(localStorage.role==="Company")
       navigate("/company/insertcompany");
        }, 3000);
        event.preventDefault();
