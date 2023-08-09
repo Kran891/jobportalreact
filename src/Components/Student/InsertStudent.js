@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import './InsertStudent.css';
 import { InsertStudentData } from "./StudentServer";
+import { useNavigate } from "react-router-dom";
 
 function InsertStudent() {
+  var navigate=useNavigate();
   const [skillSet, setSkillSet] = useState([]);
   const [preferredLocations, setPreferredLocations] = useState([]);
   const [studentData, setStudentData] = useState({
@@ -59,7 +61,12 @@ function InsertStudent() {
    console.log(studentData);
   
    await InsertStudentData(studentData);
-   
+   localStorage.removeItem("userId");
+   localStorage.removeItem("role");
+   localStorage.removeItem("token");
+   setTimeout(()=> {
+   navigate("/");
+   },3000);
   }
   return (
     <div className="container">
