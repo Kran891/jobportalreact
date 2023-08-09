@@ -5,7 +5,7 @@ import './styles.css';
 function Home(){
     const [showLogin,setshowLogin]=useState(true);
     function handleSliderChange(){
-        setshowLogin(!showLogin);
+        setshowLogin(!showLogin); 
     }
     return (
         <div className="wrapper">

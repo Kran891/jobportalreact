@@ -22,6 +22,7 @@ function App() {
         <Route path='/company/insertcompany' Component={InsertCompany} />
         <Route path='/company/postjob' Component={PostJob} />
         <Route path='/company/insertinsertview/:appliedJob' Component={InsertInterview} />
+        <Route path='/admin' Component={Admin} />
       </Routes>
     </BrowserRouter>
   );
