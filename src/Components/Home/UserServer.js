@@ -27,7 +27,7 @@ async function InsertUser(data){
         console.error("Error: ",err);
     }
 }
-async function LoginUser(data){
+async function LoginUserData(data){
 
   try{
       var headers={
@@ -56,4 +56,4 @@ async function LoginUser(data){
       console.error("Error: ",err);
   }
 }
-export {InsertUser};
+export {InsertUser,LoginUserData};

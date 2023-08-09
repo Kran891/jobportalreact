@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './styles.css'
+import { LoginUserData } from "./UserServer";
 function Login(props){
-    function LoginUser(event){ 
-console.log(loginUser)
-event.preventDefault();
+    var navigate=useNavigate();
+    async function LoginUser(event){ 
+
+   event.preventDefault();
+   await  LoginUserData();
+   
     }
     function handleChange(event){
       const{name,value}=event.target; console.log(name,value);
