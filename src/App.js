@@ -6,6 +6,7 @@ import Company from './Components/Company/Company';
 import Student from './Components/Student/Student';
 import Home from './Components/Home/Home';
 import InsertStudent from './Components/Student/InsertStudent';
+import InsertCompany from './Components/Company/InsertCompany'; 
 import PostJob from './Components/Company/PostJob';
 import InsertInterview from './Components/Company/InsertInterView';
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/company' Component={Company} />
         <Route path='/student' Component={Student} />
         <Route path='/student/insertstudent' Component={InsertStudent} /> 
+        <Route path='/company/insertcompany' Component={InsertCompany} />
         <Route path='/company/postjob' Component={PostJob} />
         <Route path='/company/insertinsertview/:appliedJob' Component={InsertInterview} />
       </Routes>
