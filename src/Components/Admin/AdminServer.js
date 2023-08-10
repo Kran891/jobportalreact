@@ -22,7 +22,8 @@ async function verifyaccount(id,setdata){
     {
         method:'GET',
         headers:{
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
         }
     }
     ).then(async x=>{
@@ -35,7 +36,8 @@ async function getjobpostedtoday(disdata){
     {
         method:'GET',
         headers:{
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
         }
     }
     ).then(res=>res.json())
@@ -49,7 +51,8 @@ async function getcompanies(disdata){
     {
         method:'GET',
         headers:{
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
         }
     }
     ).then(res=>res.json())

@@ -42,10 +42,11 @@ async function LoginUserData(data){
     }
     ).then(async res=>await res.json())
     .then(async result=>{
-      const {token,role,userId}=await result;
+      const {token,role,userId,companyId}=await result;
       localStorage.setItem("role",role);
       localStorage.setItem("userId",userId);
       localStorage.setItem("token",token);
+      localStorage.setItem("companyId",companyId)
       return userId;
 
     }
