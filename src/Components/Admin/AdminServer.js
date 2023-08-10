@@ -29,7 +29,7 @@ async function verifyaccount(id,setdata){
     })
     
 }
-async function getjobpostedtoday(){
+async function getjobpostedtoday(disdata){
     const response=fetch(API+"admin/getjobpostedtoday",
     {
         method:'GET',
@@ -37,13 +37,13 @@ async function getjobpostedtoday(){
             'Content-Type':'application/json'
         }
     }
-    ).then(res=>res.json)
+    ).then(res=>res.json())
     .then(result=>{
-        return result;
+        disdata(result.data);
     })
 
 }
-async function getcompanies(){
+async function getcompanies(disdata){
     const response=fetch(API+"admin/getcompanies",
     {
         method:'GET',
@@ -51,9 +51,10 @@ async function getcompanies(){
             'Content-Type':'application/json'
         }
     }
-    ).then(res=>res.json)
+    ).then(res=>res.json())
     .then(result=>{
-        return result;
+        console.log(result.data);
+        disdata(result.data);
     })
 }
 export {unverifiedCompanies,getcompanies,getjobpostedtoday,verifyaccount};
