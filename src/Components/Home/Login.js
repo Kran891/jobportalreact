@@ -4,6 +4,7 @@ import './styles.css'
 import { LoginUserData } from "./UserServer";
 function Login(props){
     var navigate=useNavigate();
+    const [loginUser,setLoginUser ]=useState({LEmail:"",LPassword:""});
     async function LoginUser(event){ 
    setTimeout(() => {
     if(localStorage.role==="student")
@@ -14,7 +15,7 @@ function Login(props){
   navigate("/company");
    }, 3000);
    event.preventDefault();
-   await  LoginUserData();
+   await  LoginUserData(loginUser);
    
     }
     function handleChange(event){
@@ -24,15 +25,15 @@ function Login(props){
         [name]:value
       }})
     }
-    const [loginUser,setLoginUser ]=useState({Email:"",Password:""});
+    
     return (
         <form onSubmit={LoginUser} className="login">
           <div className="field">
-            <input onChange={handleChange} type="text" name="Email" placeholder="Email Address" required value={loginUser.Email } />
+            <input onChange={handleChange} type="text" name="LEmail" placeholder="Email Address" required value={loginUser.LEmail } />
       
           </div>
           <div className="field">
-            <input onChange={handleChange} type="password" name= "Password" placeholder="Password" required value={loginUser.Password} />
+            <input onChange={handleChange} type="password" name= "LPassword" placeholder="Password" required value={loginUser.LPassword} />
           </div>
           <div className="field btn">
             <div className="btn-layer"></div>

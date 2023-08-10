@@ -1,32 +1,36 @@
+
 import API from "../API";
-async function unverifiedCompanies(){
-    const response=fetch(API+"admin/getallunverifiedcompanies",
+async function unverifiedCompanies(setdata){
+    const result=fetch(API+"admin/getallunverifiedcompanies",
     {
         method:'GET',
         headers:{
             'Content-Type':'application/json'
         }
     }
-    ).then(res=>res.json)
+   
+    ).then(res=>res.json())
     .then(result=>{
-        return result;
+       setdata(result.data);
+       console.log(result.data);
     })
+    
 }
-async function verifyaccount(id){
-    const response=fetch(API+"admin/verifyaccount/"+id,
+async function verifyaccount(id,setdata){
+    const response=fetch(API+"admin/verifycompany/"+id,
     {
         method:'GET',
         headers:{
             'Content-Type':'application/json'
         }
     }
-    ).then(res=>res.json)
-    .then(result=>{
-        return result;
+    ).then(async x=>{
+       await unverifiedCompanies(setdata); 
     })
+    
 }
 async function getjobpostedtoday(){
-    const response=fetch(API+"admin/getjobpostedtoday/"+id,
+    const response=fetch(API+"admin/getjobpostedtoday",
     {
         method:'GET',
         headers:{
@@ -40,7 +44,7 @@ async function getjobpostedtoday(){
 
 }
 async function getcompanies(){
-    const response=fetch(API+"admin/getcompanies/"+id,
+    const response=fetch(API+"admin/getcompanies",
     {
         method:'GET',
         headers:{
@@ -52,3 +56,4 @@ async function getcompanies(){
         return result;
     })
 }
+export {unverifiedCompanies,getcompanies,getjobpostedtoday,verifyaccount};

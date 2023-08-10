@@ -1,0 +1,7 @@
+.admin-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    gap: 30;
+    border: 1px solid black;
+}
