@@ -14,7 +14,11 @@ async function InsertCompanyData(data,navigatefun){
         },
         body:JSON.stringify(data)
       }
-      ).then(async res=>await res.json())
+      ).then(async res=>{
+        if(!res.ok){
+          throw new Error("Status:",res.status);
+        }
+      })
       .then(async result=>{
         // const {token,role,userId}=await result;
          localStorage.clear();
@@ -27,6 +31,7 @@ async function InsertCompanyData(data,navigatefun){
   
     }catch(err){
         console.error("Error: ",err);
+        alert("Error:",err)
     }
   }
   async function InsertJob(data){
@@ -62,7 +67,11 @@ async function InsertInterviewData(data){
         },
         body:JSON.stringify(data)
       }
-      ).then(async res=>await res.json())
+      ).then(async res=>{
+        if(!res.ok){
+          throw new Error("Status:",res.status);
+        }
+      })
       .then(async result=>{
 
         return result;
@@ -73,6 +82,7 @@ async function InsertInterviewData(data){
   
     }catch(err){
         console.error("Error: ",err);
+        alert("Error:",err)
     }
   }
   export {InsertCompanyData,InsertInterviewData,InsertJob};
