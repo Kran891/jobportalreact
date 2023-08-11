@@ -15,7 +15,7 @@ function PostJob() {
     const [skillSet, setSkillSet] = useState([]);
     async function handleSubmit(event) {
         event.preventDefault();
-        postjob.CompanyId=localStorage.CompanyId;
+        postjob.CompanyId=localStorage.companyId;
         postjob.RequiredSkills=skillSet;
         // Add your form submission logic here
         await InsertJob(postjob);

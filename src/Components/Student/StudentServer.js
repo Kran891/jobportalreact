@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import API from "../API";
 async function GetJobsByLocation(location,userId){
   const response=fetch(API+"student/getjobsbylocation/"+location+"/"+userId,
@@ -95,6 +97,36 @@ async function InsertStudentData(data){
         console.error("Error: ",err);
     }
 }
+async function InsertStudentData1(data){
+  let navigate=useNavigate();
+  try{
+    const formData = new FormData();
+    formData.append("StudentId", localStorage.userId);
+    formData.append("studentSkills", JSON.stringify(data.studentskills));
+    formData.append("skill", data.skill);
+    formData.append("Address", data.address);
+    formData.append("preferredLocations", JSON.stringify(data.preferredLocations));
+    formData.append("ResumeFile", data.ResumeFile);
+
+   
+    const response=axios.post(API+"student/insertstudentdetails",formData)
+    .then(result=>{
+      const data=result.data
+      console.log(data);
+    localStorage.removeItem("userId");
+    localStorage.removeItem("role");
+    localStorage.removeItem("token");
+       navigate("/");     
+    })
+    
+      
+    
+   
+
+  }catch(err){
+      console.error("Error: ",err);
+  }
+}
 async function InsertUser1(data){
   try{
       var headers={
@@ -124,4 +156,4 @@ async function InsertUser1(data){
       console.error("Error: ",err);
   }
 }
-export{InsertStudentData,InsertUser1}
+export{InsertStudentData,InsertStudentData1}

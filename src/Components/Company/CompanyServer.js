@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import API from "../API";
 async function InsertCompanyData(data){
+   let navigate=useNavigate();
     try{
         var headers={
             Name:"hello"
@@ -15,10 +17,11 @@ async function InsertCompanyData(data){
       ).then(async res=>await res.json())
       .then(async result=>{
         // const {token,role,userId}=await result;
-        // localStorage.setItem("role",role);
-        // localStorage.setItem("userId",userId);
-        // localStorage.setItem("token",token);
-        return result;
+         localStorage.removeItem("role");
+         localStorage.removeItem("userId");
+         localStorage.removeItem("token");
+         navigate("/"); 
+         
   
       }
         )

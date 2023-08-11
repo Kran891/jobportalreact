@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { InsertUser } from "./UserServer";
+import { InsertUser, InsertUser1 } from "./UserServer";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 function Signup(){
@@ -8,27 +8,30 @@ function Signup(){
         FirstName:"",
         LastName:"",
         Age:0,
+        
         Email:"",
         Password:"",
         PhoneNumber:"",
         Role:""
     });
     async function handleSignup(event){
-        
+      event.preventDefault();
       user.Age=calculateAge(user.Age);
     
-       InsertUser(user);
-       setTimeout(() => {
-        if(localStorage.role==="Student")
-       navigate("/student/insertstudent");
-      else if(localStorage.role==="Company")
-      navigate("/company/insertcompany");
-       }, 3000);
-       event.preventDefault();
+      await InsertUser(user);
+       
     }
     function handleChange(event){
-        const {name,value}=event.target;
-       
+        const {name,files,value}=event.target;
+        if(name==="ResumeFile"){
+          setuser((prevValues)=>{
+            return{
+              ...prevValues,
+              
+              [name]:files?files[0]:value
+            }
+        })
+        }
           
         setuser((prevValues)=>{
             return{
@@ -69,6 +72,7 @@ function Signup(){
           <div className="field">
             <input type="date" name="Age" value={user.Age} onChange={handleChange}  placeholder="Last Name" required />
           </div>
+          
           <div className="field">
             <input type="tel" name="PhoneNumber" onChange={handleChange} value={user.PhoneNumber} placeholder="Contact Number" required />
           </div>

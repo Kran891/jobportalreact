@@ -1,73 +1,72 @@
 import React, { useState } from "react";
 import './InsertStudent.css';
-import { InsertStudentData } from "./StudentServer";
+import { InsertStudentData1 } from "./StudentServer";
 import { useNavigate } from "react-router-dom";
 
 function InsertStudent() {
-  var navigate=useNavigate();
+  var navigate = useNavigate();
   const [skillSet, setSkillSet] = useState([]);
   const [preferredLocations, setPreferredLocations] = useState([]);
   const [studentData, setStudentData] = useState({
     StudentId: localStorage.userId,
-    studentskills: "",
-    
+    studentskills: [],
     skill: "",
-    address:"",
-    pincode:"",
-    city:"",
-    Address:"",
+    address: "",
+    pincode: "",
+    city: "",
+    ResumeFile: null,
     preferredLocation: "",
-    preferredLocations:""
+    preferredLocations: []
   });
 
   function addSkill(event) {
     const value = studentData.skill;
     setSkillSet(prevValues => [...prevValues, value]);
+    setStudentData(prevData => ({ ...prevData, skill: "" }));
   }
 
   function addLocation(event) {
     const value = studentData.preferredLocation;
     setPreferredLocations(prevValues => [...prevValues, value]);
+    setStudentData(prevData => ({ ...prevData, preferredLocation: "" }));
   }
 
   function handleChange(event) {
     const { name, files, value } = event.target;
     if (name === "ResumeFile") {
-     
       // Handle file input separately
-      setStudentData(prevValues => ({
-        ...prevValues,
-        [name]: files ? files[0] : null
+      setStudentData(prevData => ({
+        ...prevData,
+        [name]: files && files.length > 0 ? files[0] : null
       }));
     } else {
       // Handle other input elements
-      setStudentData(prevValues => ({
-        ...prevValues,
+      setStudentData(prevData => ({
+        ...prevData,
         [name]: value
       }));
     }
   }
 
-  function removeSkill(event) {
-    const { value } = event.target;
-    setSkillSet(prevValues => prevValues.filter(x => x !== value));
+  function removeSkill(skill) {
+    setSkillSet(prevValues => prevValues.filter(x => x !== skill));
   }
-  async function handleSubmit(event){
-   event.preventDefault();
-    studentData.Address=studentData.address+","+studentData.city+"-"+studentData.pincode;
-    studentData.studentskills=skillSet;
-    studentData.preferredLocations=preferredLocations;
-    studentData.StudentId=localStorage.userId;
-   console.log(studentData);
-  
-   await InsertStudentData(studentData);
-   localStorage.removeItem("userId");
-   localStorage.removeItem("role");
-   localStorage.removeItem("token");
-   setTimeout(()=> {
-   navigate("/");
-   },3000);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    studentData.Address = studentData.address + "," + studentData.city + "-" + studentData.pincode;
+    studentData.studentskills = skillSet;
+    studentData.preferredLocations = preferredLocations;
+    studentData.StudentId = localStorage.userId;
+
+    console.log(studentData);
+
+    await InsertStudentData1(studentData);
+    
+
+   
   }
+
   return (
     <div className="container">
       <div className="apply_box">
@@ -90,10 +89,11 @@ function InsertStudent() {
               <div className="button_container">
                 <button type="button" onClick={addSkill}>Add Skill</button>
               </div>
+              
               <label htmlFor="skillsarray"> Skills </label>
               <ul>
                 {skillSet.map(ele => (
-                  <li key={ele} onClick={removeSkill}>
+                  <li key={ele} onClick={() => removeSkill(ele)}>
                     {ele}
                   </li>
                 ))}
@@ -120,6 +120,16 @@ function InsertStudent() {
                 ))}
               </ul>
             </div>
+            <div className="field">
+               <label>Resume</label>
+                <input
+                  type="file"
+                  name="ResumeFile"
+                  onChange={handleChange}
+                  placeholder="Resume"
+                  required
+                />
+              </div>
             <div className="textarea_control">
               <label htmlFor="address"> Address </label>
               <textarea
@@ -153,7 +163,6 @@ function InsertStudent() {
               />
               <span id="pincode_error" className="error"></span>
             </div>
-            
           </div>
           <div className="button_container">
             <button type="submit">Apply Now</button>
