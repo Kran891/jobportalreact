@@ -1,9 +1,4 @@
-/* Reset default margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 /* Apply some basic styles to the form */
 .post-job-container {
@@ -63,9 +58,15 @@ button[type="submit"]:hover {
 }
 
 /* Add any additional styling specific to this page here */
+<<<<<<< HEAD
+body{
+   
+}
+=======
 /* body{
     background-image: url('https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YnVzaW5lc3MlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80'); /* Replace with your background image URL } */
+>>>>>>> 853a638a4f4750e61770dd3773b10af7f60af3ea
 .header-buttons {
     display: flex;
-    gap: 10px; /* Adjust the spacing as needed */
+    gap: 15px; /* Adjust the spacing as needed */
 }

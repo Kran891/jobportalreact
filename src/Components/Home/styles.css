@@ -20,12 +20,19 @@ html,body{
 
   width: 100%;
 
-  place-items: center;
+  /* place-items: center; */
 
-  background: -webkit-linear-gradient(left, #bfc5d5, #2b84c997);
+ 
 
 }
 
+.divform-login{
+  margin-left:auto;
+ padding-left: auto;
+  
+  width:65vw;
+  
+}
 ::selection{
 
   background: #2b84c997;
@@ -171,7 +178,11 @@ input[type="radio"]{
   color: #000;
 
 }
-
+.login{
+  justify-content: center;
+  align-content: center;
+  place-items: center;
+}
 #login:checked ~ label.signup{
 
   color: #000;

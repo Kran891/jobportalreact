@@ -23,7 +23,9 @@ function Login(props){
     }
     
     return (
+      <div  className="divform-login">
         <form onSubmit={LoginUser} className="login">
+          
           <div className="field">
             <input onChange={handleChange} type="text" name="LEmail" placeholder="Email Address" required value={loginUser.LEmail } />
       
@@ -39,6 +41,7 @@ function Login(props){
             New User <a href="#signup" onClick={()=>{props.handleChange()}}>Signup now</a>
           </div>
         </form>
+        </div>
       );
 }
 export default Login;

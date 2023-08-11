@@ -46,7 +46,8 @@ function InsertCompany(){
   function navigatefun(url){
    navigate(url);
   }
-  return <div>
+  return<div className="post-job-container">
+     <h1>Insert Company</h1>
     <form onSubmit={handleSubmit}>
     <label>Company Name</label>
     <input type="text" name="Name" onChange={handleChange} value={cdata.Name} />

@@ -8,6 +8,9 @@ function Home(){
         setshowLogin(!showLogin); 
     }
     return (
+      
+      <div  className="divform-login">
+     
         <div className="wrapper">
           <div className="title-text">
             <div className={`title ${showLogin ? 'login' : 'signup'}`}>
@@ -42,6 +45,7 @@ function Home(){
               {showLogin ? <Login handleChange={handleSliderChange} />: <Signup />}
             </div>
           </div>
+        </div>
         </div>
       );
 }
