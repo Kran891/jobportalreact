@@ -14,16 +14,19 @@ async function InsertUser(data,navigate){
         },
         body:JSON.stringify(data)
       }
-      ).then(async res=>await res.json())
+      ).then(async res=>{
+        if(!res.ok)
+        throw new Error("Error :",res.status)
+         return await res.json()})
       .then(async result=>{
         const {token,role,userId}=await result;
         localStorage.setItem("role",role);
         localStorage.setItem("userId",userId);
         localStorage.setItem("token",token);
         
-          if(localStorage.role==="Student")
+          if(localStorage.role==="student")
          navigate("/student/insertstudent");
-         else if(localStorage.role==="Company")
+         else if(localStorage.role==="company")
          navigate("/company/insertcompany");
         
          
@@ -48,18 +51,16 @@ async function LoginUserData(data,navigatefun){
       },
       body:JSON.stringify(data)
     }
-    ).then(async res=>{
-      if(!res.ok){
-        throw new Error("Status :",res.status);
-      }
-    })
+    ).then(async res=>await res.json())
     .then(async result=>{
+      console.log(result);
+      debugger;
       const {token,role,userId,companyId}=await result;
       localStorage.setItem("role",role);
       localStorage.setItem("userId",userId);
       localStorage.setItem("token",token);
       localStorage.setItem("companyId",companyId)
-      
+     
         if(localStorage.role==="student")
         navigatefun("/student");
       else if(localStorage.role==="admin")
