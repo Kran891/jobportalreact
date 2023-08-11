@@ -35,7 +35,8 @@ function InsertInterview() {
       await InsertInterviewData();
     }
     return (
-        <div className="schedule-interview-container">
+        <div className="post-job-container">
+            
             <h1>Schedule Interview</h1>
             <form onSubmit={handleSubmit}>
                 
