@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 import API from "../API";
 async function GetJobsByLocation(location,userId){
   const response=fetch(API+"student/getjobsbylocation/"+location+"/"+userId,
@@ -71,7 +71,7 @@ async function GetInterviewsScheduled(userId){
   })
 }
 
-async function InsertStudentData(data){
+async function InsertStudentData(data,navigatefun){
     try{
       
      
@@ -97,8 +97,8 @@ async function InsertStudentData(data){
         console.error("Error: ",err);
     }
 }
-async function InsertStudentData1(data){
-  let navigate=useNavigate();
+async function InsertStudentData1(data,navigatefun){
+  
   try{
     const formData = new FormData();
     formData.append("StudentId", localStorage.userId);
@@ -113,10 +113,9 @@ async function InsertStudentData1(data){
     .then(result=>{
       const data=result.data
       console.log(data);
-    localStorage.removeItem("userId");
-    localStorage.removeItem("role");
-    localStorage.removeItem("token");
-       navigate("/");     
+       localStorage.clear();
+       alert("Student Added");
+       navigatefun("/");     
     })
     
       

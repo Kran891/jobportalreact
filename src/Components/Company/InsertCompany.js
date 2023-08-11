@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { InsertCompanyData } from "./CompanyServer";
 
 
 function InsertCompany(){
   const [cLoc,setCLoc]=useState([]);
+  const navigate=useNavigate();
   const [cdata,setcdata]=useState({
     Name:"",
     Description:"",
@@ -23,7 +25,7 @@ function InsertCompany(){
   async function handleSubmit(event){
     cdata.OwnerId=localStorage.userId;
     cdata.CompanyLocations=[...new Set(cLoc)];
-    await InsertCompanyData(cdata);
+    await InsertCompanyData(cdata,navigatefun);
     event.preventDefualt();
   }
   function addLoc(event){
@@ -40,6 +42,9 @@ function InsertCompany(){
   }
   function removeItem(item){
     setCLoc(p=>[...p.filter(x=>x!=item)])
+  }
+  function navigatefun(url){
+   navigate(url);
   }
   return <div>
     <form onSubmit={handleSubmit}>
