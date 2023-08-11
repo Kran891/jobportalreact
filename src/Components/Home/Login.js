@@ -8,8 +8,11 @@ function Login(props){
     async function LoginUser(event){ 
    
    event.preventDefault();
-   await  LoginUserData(loginUser);
+   await  LoginUserData(loginUser,navigatefun);
    
+    }
+    function navigatefun(url){
+      navigate(url);
     }
     function handleChange(event){
       const{name,value}=event.target; console.log(name,value);

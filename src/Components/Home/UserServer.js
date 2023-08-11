@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
+
 import API from "../API";
-async function InsertUser(data){
-  let navigate=useNavigate();
+async function InsertUser(data,navigate){
+    
     try{
        
       const response=fetch(API+"user/insertuser",
@@ -35,8 +36,8 @@ async function InsertUser(data){
         console.error("Error: ",err);
     }
 }
-async function LoginUserData(data){
-  let navigate=useNavigate();
+async function LoginUserData(data,navigatefun){
+ 
   try{
      
     const response=fetch(API+"user/loginuser",
@@ -56,11 +57,11 @@ async function LoginUserData(data){
       localStorage.setItem("companyId",companyId)
       
         if(localStorage.role==="student")
-       navigate("/student");
+       navigatefun("/student");
       else if(localStorage.role==="admin")
-      navigate("/admin");
+      navigatefun("/admin");
       else if(localStorage.role==="company")
-      navigate("/company");
+      navigatefun("/company");
 
     }
       )

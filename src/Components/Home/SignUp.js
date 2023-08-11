@@ -4,6 +4,7 @@ import "./styles.css";
 import { useNavigate } from "react-router-dom";
 function Signup(){
     const navigate=useNavigate();
+    
     const [user,setuser]=useState({
         FirstName:"",
         LastName:"",
@@ -18,8 +19,11 @@ function Signup(){
       event.preventDefault();
       user.Age=calculateAge(user.Age);
     
-      await InsertUser(user);
+      await InsertUser(user,navigatefun);
        
+    }
+    function navigatefun(url){
+      navigate(url);
     }
     function handleChange(event){
         const {name,files,value}=event.target;
