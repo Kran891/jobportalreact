@@ -79,7 +79,7 @@ body {
   .centered button {
     margin-top: 10px;
     padding: 8px 16px;
-    background-color: #27ae60;
+    background-color:  #161c5e;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -87,7 +87,7 @@ body {
   }
   
   .centered button:hover {
-    background-color: #219a52;
+    background-color: #161c5e;
   }
   
   /* Div 3 Styles */
@@ -96,4 +96,9 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
   }
+
+  .location-icon {
+    margin-right: 5px;
+    color: #000000; /* Adjust the color as needed */
+}
   
