@@ -14,10 +14,7 @@ async function InsertUser(data,navigate){
         },
         body:JSON.stringify(data)
       }
-      ).then(async res=>{
-        if(!res.ok)
-        throw new Error("Error :",res.status)
-         return await res.json()})
+      ).then(async res=>await res.json())
       .then(async result=>{
         const {token,role,userId}=await result;
         localStorage.setItem("role",role);
@@ -37,6 +34,7 @@ async function InsertUser(data,navigate){
 
     }catch(err){
         console.error("Error: ",err);
+        alert("Error: ",err)
     }
 }
 async function LoginUserData(data,navigatefun){
@@ -81,7 +79,7 @@ async function LoginUserData(data,navigatefun){
 
   }catch(err){
       console.error("Error: ",err);
-      alert();
+      alert("Error:",err);
   }
 }
 async function InsertUser1(data){
@@ -90,6 +88,7 @@ async function InsertUser1(data){
     const response=axios.post(API+"user/insertuser",data).then(async res=>{});
   }catch(err){
       console.error("Error: ",err);
+      alert("Error:",err)
   }
 }
 export {InsertUser,LoginUserData,InsertUser1};

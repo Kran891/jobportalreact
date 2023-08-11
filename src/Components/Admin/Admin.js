@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './adminstyle.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 import { getcompanies, getjobpostedtoday, unverifiedCompanies, verifyaccount } from './AdminServer';
 
@@ -50,6 +53,7 @@ function Admin() {
             </div>
                 
             <div className="post-job-container">
+
                 {showDiv1 && !!disdata.length && (
                     <div className="div1 admin-grid">
                         {disdata.map((ele) => (
@@ -68,10 +72,14 @@ function Admin() {
                         {disdata.map((ele) => (
                             <div className="centered" key={ele.companyId}>
                                 <h1>{ele.name}</h1>
-                                <h2>{ele.ownerName}</h2>
-                                <p>{"Locations: " + ele.companyLocations.join()}</p>
+                                <h2>{ele.ownerName}</h2> 
+                                <p>
+                                <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />                     
+                                    {"Locations: " + ele.companyLocations.join()}</p>
+                                <button>Button</button>
                             </div>
                         ))}
+                         
                     </div>
                 )}
             </div>

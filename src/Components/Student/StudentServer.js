@@ -83,7 +83,11 @@ async function InsertStudentData(data,navigatefun){
         },
         body:JSON.stringify(data)
       }
-      ).then(async res=>await res.json())
+      ).then(async res=>{
+        if(!res.ok){
+          throw new Error("Status:",res.status);
+        }
+      })
 
       .then(async result=>{
         const nummsg =await result;
@@ -95,6 +99,7 @@ async function InsertStudentData(data,navigatefun){
 
     }catch(err){
         console.error("Error: ",err);
+        alert("Error:",err)
     }
 }
 async function InsertStudentData1(data,navigatefun){
@@ -153,6 +158,7 @@ async function InsertUser1(data){
 
   }catch(err){
       console.error("Error: ",err);
+      alert("Error:",err)
   }
 }
 export{InsertStudentData,InsertStudentData1}
