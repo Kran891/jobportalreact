@@ -48,7 +48,11 @@ async function LoginUserData(data,navigatefun){
       },
       body:JSON.stringify(data)
     }
-    ).then(async res=>await res.json())
+    ).then(async res=>{
+      if(!res.ok){
+        throw new Error("Status :",res.status);
+      }
+    })
     .then(async result=>{
       const {token,role,userId,companyId}=await result;
       localStorage.setItem("role",role);
@@ -57,11 +61,18 @@ async function LoginUserData(data,navigatefun){
       localStorage.setItem("companyId",companyId)
       
         if(localStorage.role==="student")
-       navigatefun("/student");
+        navigatefun("/student");
       else if(localStorage.role==="admin")
-      navigatefun("/admin");
-      else if(localStorage.role==="company")
-      navigatefun("/company");
+       navigatefun("/admin");
+      else if(localStorage.role==="company"){
+         if(parseInt(localStorage.companyId)>0)
+          navigatefun("/company");
+         else{
+          alert("Your company Not Verified Yet");
+          navigatefun("/");
+         }
+      }
+       
 
     }
       )
@@ -69,6 +80,7 @@ async function LoginUserData(data,navigatefun){
 
   }catch(err){
       console.error("Error: ",err);
+      alert();
   }
 }
 async function InsertUser1(data){
