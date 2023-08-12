@@ -42,6 +42,8 @@ async function getjobpostedtoday(disdata){
     }
     ).then(res=>res.json())
     .then(result=>{
+        console.log(result.data);
+        debugger;
         disdata(result.data);
     })
 

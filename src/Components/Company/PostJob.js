@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { InsertJob } from './CompanyServer';
 import './PostJob.css';
-
+import { useNavigate } from "react-router-dom";
 function PostJob() {
+  var navigate=useNavigate();
   const[RequiredSkills,setRequiredSkills]=useState([]);
   const [postjob, setpostjob] = useState({
     CompanyId: "",
@@ -19,9 +20,11 @@ function PostJob() {
     postjob.CompanyId = localStorage.companyId;
     postjob.RequiredSkills = [...new Set(RequiredSkills)];
     // Add your form submission logic here
-    await InsertJob(postjob);
+    await InsertJob(postjob,navigatefun);
   }
-
+  function navigatefun(url){
+    navigate(url);
+  }
   function handleChange(event) {
     const { name, value } = event.target;
     setpostjob(prevValues => {

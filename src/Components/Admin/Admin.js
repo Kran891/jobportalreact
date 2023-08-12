@@ -60,20 +60,20 @@ function Admin() {
                             <div className="centered" key={ele.companyId}>
                                 <h1>{ele.name}</h1>
                                 <h2>{ele.ownerName}</h2>
-                                <p>{"Locations: " + ele.companyLocations.join()}</p>
+                                <p>{"Locations: " + ele.companyLocations}</p>
                                 <button onClick={() => verifyCompany(ele.companyId)}>Verify Company</button>
                             </div>
                         ))}
                     </div>
                 )}
-                {showDiv2 && <div className="div2 admin-grid">
+                {showDiv2 && <div className="div2">
                     {disdata.map((ele) => (
                         <div className="centered" key={ele.jobId}>
                             <h1>{ele.title}</h1>
                             <h2>{ele.companyName}</h2>
-                            
+                             <p>Package:{ele.salary}</p>
                                 {/* <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" /> */}
-                                {/* {"Skills: " + ele.requiredSkills.join()}</p> */}
+                            <p> {"Skills: " + ele.requiredSkills}</p>
                             
                         </div>
                     ))}
@@ -86,7 +86,7 @@ function Admin() {
                                 <h2>{ele.ownerName}</h2>
                                 <p>
                                     <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
-                                    {"Locations: " + ele.companyLocations.join()}</p>
+                                    {"Locations: " + ele.companyLocations}</p>
                                 <button>Button</button>
                             </div>
                         ))}

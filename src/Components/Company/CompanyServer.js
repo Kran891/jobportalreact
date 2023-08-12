@@ -30,7 +30,7 @@ async function InsertCompanyData(data,navigatefun){
         alert("Error:",err)
     }
   }
-  async function InsertJob(data){
+  async function InsertJob(data,navigatefun){
     try{
         var headers={
             Name:"Hello"
@@ -43,7 +43,21 @@ async function InsertCompanyData(data,navigatefun){
         },
         body:JSON.stringify(data)
       }
-      );
+      ).then(async res=>{
+        if(!res.ok)
+          throw new Error("Error :",res.status)
+        return await res.json();
+      }).then(result=>{
+        if(parseInt(result.data)>1)
+          navigatefun("/company");
+        else{
+          alert("Already Exsits the job title");
+          navigatefun("/company");
+        }
+          
+      }).catch(err=>{
+        alert(err);
+      })
      
 
     }catch(err){

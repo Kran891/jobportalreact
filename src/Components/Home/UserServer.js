@@ -87,7 +87,8 @@ function LoginUserData(data, navigatefun) {
 async function InsertUser1(data){
   try{
      
-    const response=axios.post(API+"user/insertuser",data).then(async res=>{});
+    const response=axios.post(API+"user/insertuser",data)
+    .then(async res=>{});
   }catch(err){
       console.error("Error: ",err);
       alert("Error:",err)
