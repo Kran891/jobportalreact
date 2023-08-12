@@ -81,7 +81,8 @@ async function InsertInterviewData(data){
         if(!res.ok){
           throw new Error("Status:",res.status);
         }
-      })
+        return await res.json();
+      }) 
       .then(async result=>{
 
         return result;
