@@ -1,22 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './InsertStudent.css'
-function Student(){
-    return (
-        <header>
-            <nav className="navbar navbar-default">
-                <div className="container">
-                    <div className="navbar-header">
-                        <p className="navbar-brand">DAILY JOURNAL</p>
+import StudentHeader from "./StudentHeader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { GetJobsByYourSkills } from "./StudentServer";
+function Student() {
+    const [showdata, setshowdata] = useState();
+    useEffect(() => {
+         const x=async ()=>{
+            await GetJobsByYourSkills(localStorage.userId,setshowdata);
+         }
+         x();
+    }, []);
+    return <div>
+        <StudentHeader />
+        <div className="show-grid-container">
+            {!!showdata && showdata.map(ele => {
+                return <div>
+                    <h3>{ele.title}</h3>
+                    <h2>{ele.companyName}</h2>
+                    <p>Skills:{ele.requiredSkills}</p>
+                    <div className="show-icons-flex">
+                    <p><FontAwesomeIcon icon="fa-solid fa-location-pin" />{ele.locations}</p>
+                    <p><FontAwesomeIcon icon="fa-solid fa-indian-rupee-sign" />{ele.salary}</p>
                     </div>
-                    <ul className="nav navbar-nav navbar-right">
-
-                        <li id="home"><a href="/">HOME</a></li>
-                        <li id="about"><a href="/about">ABOUT US</a></li>
-                        <li id="contact"><a href="/contact">CONTACT US</a></li>
-                    </ul>
+                    <div className="show-icons-flex">
+                    <p><FontAwesomeIcon icon="fa-solid fa-person-walking-arrow-right" />{ele.noOfApplicants}</p>
+                    <p><button>Apply Job</button></p>
+                    </div>
+                    <div>
+                    </div>
                 </div>
-            </nav>
-        </header>
-    );
+
+            })}
+        </div>
+    </div>;
 }
 export default Student;

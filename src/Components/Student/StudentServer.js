@@ -29,7 +29,7 @@ async function GetAllJobs(userId){
   })
 }
 
-async function GetJobsByYourSkills(userId){
+async function GetJobsByYourSkills(userId,setdata){
   const response=fetch(API+"student/getjobsbyyuorskills/"+userId,
   {
       method:'GET',
@@ -37,9 +37,9 @@ async function GetJobsByYourSkills(userId){
           'Content-Type':'application/json'
       }
   }
-  ).then(res=>res.json)
-  .then(result=>{
-      return result;
+  ).then(async res=>await res.json())
+  .then(async result=>{
+     setdata(await result.data);
   })
 }
 
@@ -165,4 +165,4 @@ async function InsertUser1(data){
       alert("Error:",err)
   }
 }
-export{InsertStudentData,InsertStudentData1}
+export{InsertStudentData,InsertStudentData1,GetJobsByYourSkills}
