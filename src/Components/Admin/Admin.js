@@ -46,12 +46,12 @@ function Admin() {
         <div>
             <h2>ADMIN PAGE</h2>
             <div className="header-buttons">
-                
+
                 <button onClick={() => showDiv(1)}>Unverified Companies</button>
                 <button onClick={() => showDiv(2)}>Jobs Posted Today</button>
                 <button onClick={() => showDiv(3)}>Get All Companies</button>
             </div>
-                
+
             <div className="post-job-container">
 
                 {showDiv1 && !!disdata.length && (
@@ -66,20 +66,31 @@ function Admin() {
                         ))}
                     </div>
                 )}
-                {showDiv2 && <div className="div2">Div 2 Content</div>}
+                {showDiv2 && <div className="div2 admin-grid">
+                    {disdata.map((ele) => (
+                        <div className="centered" key={ele.jobId}>
+                            <h1>{ele.title}</h1>
+                            <h2>{ele.companyName}</h2>
+                            
+                                {/* <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" /> */}
+                                {/* {"Skills: " + ele.requiredSkills.join()}</p> */}
+                            
+                        </div>
+                    ))}
+                </div>}
                 {showDiv3 && (
                     <div className="div3 admin-grid">
                         {disdata.map((ele) => (
                             <div className="centered" key={ele.companyId}>
                                 <h1>{ele.name}</h1>
-                                <h2>{ele.ownerName}</h2> 
+                                <h2>{ele.ownerName}</h2>
                                 <p>
-                                <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />                     
+                                    <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
                                     {"Locations: " + ele.companyLocations.join()}</p>
                                 <button>Button</button>
                             </div>
                         ))}
-                         
+
                     </div>
                 )}
             </div>

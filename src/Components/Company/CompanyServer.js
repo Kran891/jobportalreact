@@ -18,18 +18,14 @@ async function InsertCompanyData(data,navigatefun){
         if(!res.ok){
           throw new Error("Status:",res.status);
         }
+        return await res.json();
       })
       .then(async result=>{
         // const {token,role,userId}=await result;
          localStorage.clear();
          navigatefun("/"); 
-         
-  
-      }
-        )
-     
-  
-    }catch(err){
+      }).catch(err=>alert(err))
+      }catch(err){
         console.error("Error: ",err);
         alert("Error:",err)
     }

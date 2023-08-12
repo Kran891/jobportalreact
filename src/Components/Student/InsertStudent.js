@@ -47,7 +47,9 @@ function InsertStudent() {
       }));
     }
   }
-
+  function navigatefun(url){
+    navigate(url);
+  }
   function removeSkill(skill) {
     setSkillSet(prevValues => prevValues.filter(x => x !== skill));
   }
@@ -61,7 +63,7 @@ function InsertStudent() {
 
     console.log(studentData);
 
-    await InsertStudentData1(studentData);
+    await InsertStudentData1(studentData,navigatefun);
     
 
    

@@ -107,26 +107,30 @@ async function InsertStudentData1(data,navigatefun){
   try{
     const formData = new FormData();
     formData.append("StudentId", localStorage.userId);
-    formData.append("studentSkills", JSON.stringify(data.studentskills));
+    //formData.append("studentSkills",data.studentskills);
     formData.append("skill", data.skill);
     formData.append("Address", data.address);
-    formData.append("preferredLocations", JSON.stringify(data.preferredLocations));
+   // formData.append("preferredLocations", JSON.stringify(data.preferredLocations));
     formData.append("ResumeFile", data.ResumeFile);
-
-   
+    data.studentskills.forEach(x=>{
+      formData.append("studentSkills",x)
+    });
+    data.preferredLocations.forEach(x=>{
+      formData.append("preferredLocations",x);
+    })
     const response=axios.post(API+"student/insertstudentdetails",formData)
     .then(result=>{
+      if(result.status!==200)
+        throw new Error("Error :",result.status);
       const data=result.data
       console.log(data);
        localStorage.clear();
        alert("Student Added");
        navigatefun("/");     
     })
-    
-      
-    
-   
-
+    .catch(err=>{
+      alert(err);
+    })
   }catch(err){
       console.error("Error: ",err);
   }
