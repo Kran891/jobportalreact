@@ -32,8 +32,9 @@ async function InsertUser(data,navigate){
         
          
 
-      }
-        )
+      }).catch(err=>{
+        alert(err);
+      })
      
 
     }catch(err){

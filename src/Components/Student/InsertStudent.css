@@ -187,14 +187,16 @@
 }
 .show-grid-container{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 5px;
   grid-auto-rows: auto;
   gap: 30px;
 }
 .show-grid-card{
   border: 1px solid black;
-  border-radius: 45px;
-  box-shadow: inherit;
+  border-radius: 5px;
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+  background-color: white;
 }
 .show-icons-flex{
   display: flex;

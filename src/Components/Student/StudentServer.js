@@ -30,7 +30,7 @@ async function GetAllJobs(userId){
 }
 
 async function GetJobsByYourSkills(userId,setdata){
-  const response=fetch(API+"student/getjobsbyyuorskills/"+userId,
+  const response=fetch(API+"student/getjobsbyyourskills/"+userId,
   {
       method:'GET',
       headers:{
@@ -39,6 +39,7 @@ async function GetJobsByYourSkills(userId,setdata){
   }
   ).then(async res=>await res.json())
   .then(async result=>{
+    debugger;
      setdata(await result.data);
   })
 }
@@ -70,7 +71,39 @@ async function GetInterviewsScheduled(userId){
       return result;
   })
 }
+async function applyJob(jobid,userId,setdata){
+  try{
+      
+     
+    const response=fetch(API+"student/applyjob/"+jobid+"/"+userId,
+    {
+      method:'GET',
+      headers:{
+          'Content-Type':'application/json'
+      },
+      
+    }
+    ).then(async res=>{
+      if(!res.ok){
+        throw new Error("Status:",res.status);
+      }
+      return res.json();
+    })
 
+    .then(async result=>{
+      const nummsg =await result.data;       
+      setdata(pv=>{
+        return [...pv.filter(x=>x.jobId!=jobid)]
+       })
+    }
+      )
+   
+
+  }catch(err){
+      console.error("Error: ",err);
+      alert("Error:",err)
+  }
+}
 async function InsertStudentData(data,navigatefun){
     try{
       
@@ -165,4 +198,4 @@ async function InsertUser1(data){
       alert("Error:",err)
   }
 }
-export{InsertStudentData,InsertStudentData1,GetJobsByYourSkills}
+export{InsertStudentData,InsertStudentData1,GetJobsByYourSkills,applyJob}
