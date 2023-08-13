@@ -30,7 +30,7 @@ function Student() {
         await  GetInterviewsScheduled(localStorage.userId,setshowdata);
     }
     return <div>
-        <StudentHeader handleShowApplied={handleShowApplied}  />
+        <StudentHeader handleShowApplied={handleShowApplied} handleShowInterViews={handleShowInterViews}  />
         <div className="show-grid-container">
             {div1 && !!showdata && showdata.map(ele => {
                 return <div className="show-grid-card">

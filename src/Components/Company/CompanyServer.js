@@ -48,7 +48,7 @@ async function InsertCompanyData(data,navigatefun){
           throw new Error("Error :",res.status)
         return await res.json();
       }).then(result=>{
-        if(parseInt(result.data)>1)
+        if(parseInt(result.data)>=1)
           navigatefun("/company");
         else{
           alert("Already Exsits the job title");
@@ -87,8 +87,7 @@ async function InsertInterviewData(data){
 
         return result;
   
-      }
-        )
+      })
      
   
     }catch(err){

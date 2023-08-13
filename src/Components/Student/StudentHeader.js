@@ -10,7 +10,7 @@ function StudentHeader(props) {
                 <ul className="nav navbar-nav navbar-right">
 
                     <li ><Link href="/student">HOME</Link></li>
-                    <li> <button onClick={()=>props.handleShowApplied()} className="btn btn-primary button-padding">ABOUT US</button></li>
+                    <li> <button onClick={()=>props.handleShowApplied()} className="btn btn-primary button-padding">Applied Jobs</button></li>
                     <li><button onClick={()=>props.handleShowInterViews()}  className="btn btn-primary button-padding">InterViews</button></li>
                 </ul>
             </div>

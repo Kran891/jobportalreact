@@ -26,7 +26,7 @@ function InsertCompany(){
     cdata.OwnerId=localStorage.userId;
     cdata.CompanyLocations=[...new Set(cLoc)];
     await InsertCompanyData(cdata,navigatefun);
-    event.preventDefualt();
+    event.preventDefault();
   }
   function addLoc(event){
     const value=cdata.Loc;
