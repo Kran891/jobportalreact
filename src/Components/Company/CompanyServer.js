@@ -87,6 +87,8 @@ async function InsertInterviewData(data){
 
         return result;
   
+      }).catch(error=>{
+        alert("Error:",err)
       })
      
   

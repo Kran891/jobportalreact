@@ -12,6 +12,8 @@ async function GetJobsByLocation(location,userId){
   ).then(res=>res.json)
   .then(result=>{
       return result;
+  }).catch(error=>{
+    alert("Error:",err)
   })
 }
 
@@ -26,6 +28,8 @@ async function GetAllJobs(userId){
   ).then(res=>res.json)
   .then(result=>{
       return result;
+  }).catch(error=>{
+    alert("Error:",err)
   })
 }
 
@@ -41,6 +45,8 @@ async function GetJobsByYourSkills(userId,setdata){
   .then(async result=>{
     debugger;
      setdata(await result.data);
+  }).catch(error=>{
+    alert("Error:",err)
   })
 }
 
@@ -55,6 +61,8 @@ async function GetAppliedJobs(userId,setdata){
   ).then(async res=>await res.json())
   .then(async result=>{
       setdata(await result.data);
+  }).catch(error=>{
+    alert("Error:",err)
   })
 }
 
@@ -69,6 +77,8 @@ async function GetInterviewsScheduled(userId,setdata){
   ).then(async res=>await res.json())
   .then(result=>{
       setdata(result.data)
+  }).catch(error=>{
+    alert("Error:",err)
   })
 }
 async function applyJob(jobid,userId,setdata){
@@ -96,7 +106,9 @@ async function applyJob(jobid,userId,setdata){
         return [...pv.filter(x=>x.jobId!=jobid)]
        })
     }
-      )
+      ).catch(error=>{
+        alert("Error:",err)
+      })
    
 
   }catch(err){
@@ -127,7 +139,9 @@ async function InsertStudentData(data,navigatefun){
         return nummsg;       
 
       }
-        )
+        ).catch(error=>{
+          alert("Error:",err)
+        })
      
 
     }catch(err){
@@ -190,7 +204,9 @@ async function InsertUser1(data){
       return result;
 
     }
-      )
+      ).catch(error=>{
+        alert("Error:",err)
+      })
    
 
   }catch(err){
