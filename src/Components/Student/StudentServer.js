@@ -44,7 +44,7 @@ async function GetJobsByYourSkills(userId,setdata){
   })
 }
 
-async function GetAppliedJobs(userId){
+async function GetAppliedJobs(userId,setdata){
   const response=fetch(API+"student/getappliedjobs/"+userId,
   {
       method:'GET',
@@ -52,13 +52,13 @@ async function GetAppliedJobs(userId){
           'Content-Type':'application/json'
       }
   }
-  ).then(res=>res.json)
-  .then(result=>{
-      return result;
+  ).then(async res=>await res.json())
+  .then(async result=>{
+      setdata(await result.data);
   })
 }
 
-async function GetInterviewsScheduled(userId){
+async function GetInterviewsScheduled(userId,setdata){
   const response=fetch(API+"student/getinterviewsscheduled/"+userId,
   {
       method:'GET',
@@ -66,9 +66,9 @@ async function GetInterviewsScheduled(userId){
           'Content-Type':'application/json'
       }
   }
-  ).then(res=>res.json)
+  ).then(async res=>await res.json())
   .then(result=>{
-      return result;
+      setdata(result.data)
   })
 }
 async function applyJob(jobid,userId,setdata){
@@ -198,4 +198,4 @@ async function InsertUser1(data){
       alert("Error:",err)
   }
 }
-export{InsertStudentData,InsertStudentData1,GetJobsByYourSkills,applyJob}
+export{InsertStudentData,InsertStudentData1,GetJobsByYourSkills,applyJob,GetAppliedJobs,GetInterviewsScheduled}

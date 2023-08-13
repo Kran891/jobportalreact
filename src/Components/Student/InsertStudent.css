@@ -185,6 +185,9 @@
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
 }
+.button-padding{
+  margin: 5px 5px 0 0;
+}
 .show-grid-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

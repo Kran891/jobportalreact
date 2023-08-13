@@ -1,21 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function StudentHeader(){
-   return( <header>
-    <nav className="navbar navbar-default">
-        <div className="container">
-            <div className="navbar-header">
-                <p className="navbar-brand">JOB PORTAL</p>
-            </div>
-            <ul className="nav navbar-nav navbar-right">
+function StudentHeader(props) {
+    return (<header>
+        <nav className="navbar navbar-default">
+            <div className="container">
+                <div className="navbar-header">
+                    <p className="navbar-brand">JOB PORTAL</p>
+                </div>
+                <ul className="nav navbar-nav navbar-right">
 
-                <li id="home"><Link href="/">HOME</Link></li>
-                <li id="about"><Link href="/about">ABOUT US</Link></li>
-                <li id="contact"><Link href="/contact">CONTACT US</Link></li>
-            </ul>
-        </div>
-    </nav>
-    
-</header>);
+                    <li ><Link href="/student">HOME</Link></li>
+                    <li> <button onClick={()=>props.handleShowApplied()} className="btn btn-primary button-padding">ABOUT US</button></li>
+                    <li><button onClick={()=>props.handleShowInterViews()}  className="btn btn-primary button-padding">InterViews</button></li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>);
 }
 export default StudentHeader;
