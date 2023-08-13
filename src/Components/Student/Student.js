@@ -72,9 +72,10 @@ function Student() {
                     <p>Skills:{ele.requiredSkills.join()}</p>
                     <p>CompanyLocations{ele.companyLocations}</p>
                     <div className="show-icons-flex">
-                    {<p>Location{ele.locations}</p>} 
-                    <p>Date{ele.date}</p>
-                    <p>Mode{ele.mode}</p>
+                    <p>Date{ele.interViewDate}</p>
+                    <p>Mode{ele.interViewMode}</p>
+                    {<p>location{ele.interViewLocation}</p>} 
+                    <p></p>
                     </div>
                     <div className="show-icons-flex">
                     <p><FontAwesomeIcon icon="fa-solid fa-person-walking-arrow-right" />{ele.noOfApplicants}</p>
