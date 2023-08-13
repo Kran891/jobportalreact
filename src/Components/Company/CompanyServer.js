@@ -113,7 +113,22 @@ async function InsertInterviewData(data){
       alert("Error:",error)
     })
   }
-  
+  async function GetSheduledInterViews(jobId,setdata){
+    const response=fetch(API+"company/getsheduledinterViews/"+jobId,
+    {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+    ).then(async res=>await res.json())
+    .then(async result=>{
+      debugger;
+       setdata(await result.data);
+    }).catch(error=>{
+      alert("Error:",error)
+    })
+  }
   async function GetStudentsAppliedForJob(jobId,setdata){
     const response=fetch(API+"company/getstudentsappliedforjob/"+jobId,
     {
@@ -152,4 +167,4 @@ async function InsertInterviewData(data){
       alert("Error:",error)
     })
   }
-  export {InsertCompanyData,InsertInterviewData,InsertJob,GetAllJobsByCompanyId,GetStudentsAppliedForJob};
+  export {InsertCompanyData,InsertInterviewData,InsertJob,GetSheduledInterViews,GetAllJobsByCompanyId,GetStudentsAppliedForJob,DeleteJob};
