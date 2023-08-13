@@ -13,7 +13,7 @@ async function GetJobsByLocation(location,userId){
   .then(result=>{
       return result;
   }).catch(error=>{
-    alert("Error:",err)
+    alert("Error:",error)
   })
 }
 
@@ -29,7 +29,7 @@ async function GetAllJobs(userId){
   .then(result=>{
       return result;
   }).catch(error=>{
-    alert("Error:",err)
+    alert("Error:",error)
   })
 }
 
@@ -46,7 +46,7 @@ async function GetJobsByYourSkills(userId,setdata){
     debugger;
      setdata(await result.data);
   }).catch(error=>{
-    alert("Error:",err)
+    alert("Error:",error)
   })
 }
 
@@ -62,7 +62,7 @@ async function GetAppliedJobs(userId,setdata){
   .then(async result=>{
       setdata(await result.data);
   }).catch(error=>{
-    alert("Error:",err)
+    alert("Error:",error)
   })
 }
 
@@ -78,7 +78,7 @@ async function GetInterviewsScheduled(userId,setdata){
   .then(result=>{
       setdata(result.data)
   }).catch(error=>{
-    alert("Error:",err)
+    alert("Error:",error)
   })
 }
 async function applyJob(jobid,userId,setdata){
@@ -107,13 +107,13 @@ async function applyJob(jobid,userId,setdata){
        })
     }
       ).catch(error=>{
-        alert("Error:",err)
+        alert("Error:",error)
       })
    
 
-  }catch(err){
-      console.error("Error: ",err);
-      alert("Error:",err)
+  }catch(error){
+      console.error("Error: ",error);
+      alert("Error:",error)
   }
 }
 async function InsertStudentData(data,navigatefun){
@@ -140,13 +140,13 @@ async function InsertStudentData(data,navigatefun){
 
       }
         ).catch(error=>{
-          alert("Error:",err)
+          alert("Error:",error)
         })
      
 
-    }catch(err){
-        console.error("Error: ",err);
-        alert("Error:",err)
+    }catch(error){
+        console.error("Error: ",error);
+        alert("Error:",error)
     }
 }
 async function InsertStudentData1(data,navigatefun){
@@ -175,11 +175,11 @@ async function InsertStudentData1(data,navigatefun){
        alert("Student Added");
        navigatefun("/");     
     })
-    .catch(err=>{
-      alert(err);
+    .catch(error=>{
+      alert(error);
     })
-  }catch(err){
-      console.error("Error: ",err);
+  }catch(error){
+      console.error("Error: ",error);
   }
 }
 async function InsertUser1(data){
@@ -205,13 +205,13 @@ async function InsertUser1(data){
 
     }
       ).catch(error=>{
-        alert("Error:",err)
+        alert("Error:",error)
       })
    
 
-  }catch(err){
-      console.error("Error: ",err);
-      alert("Error:",err)
+  }catch(error){
+      console.error("Error: ",error);
+      alert("Error:",error)
   }
 }
 export{InsertStudentData,InsertStudentData1,GetJobsByYourSkills,applyJob,GetAppliedJobs,GetInterviewsScheduled}

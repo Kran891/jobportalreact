@@ -24,10 +24,10 @@ async function InsertCompanyData(data,navigatefun){
         // const {token,role,userId}=await result;
          localStorage.clear();
          navigatefun("/"); 
-      }).catch(err=>alert(err))
-      }catch(err){
-        console.error("Error: ",err);
-        alert("Error:",err)
+      }).catch(error=>alert(error))
+      }catch(error){
+        console.error("Error: ",error);
+        alert("Error:",error)
     }
   }
   async function InsertJob(data,navigatefun){
@@ -55,13 +55,13 @@ async function InsertCompanyData(data,navigatefun){
           navigatefun("/company");
         }
           
-      }).catch(err=>{
-        alert(err);
+      }).catch(error=>{
+        alert(error);
       })
      
 
-    }catch(err){
-        console.error("Error: ",err);
+    }catch(error){
+        console.error("Error: ",error);
     }
 }
 async function InsertInterviewData(data){
@@ -92,9 +92,9 @@ async function InsertInterviewData(data){
       })
      
   
-    }catch(err){
-        console.error("Error: ",err);
-        alert("Error:",err)
+    }catch(error){
+        console.error("Error: ",error);
+        alert("Error:",error)
     }
   }
   async function GetAllJobsByCompanyId(companyId,setdata){
@@ -113,22 +113,7 @@ async function InsertInterviewData(data){
       alert("Error:",error)
     })
   }
-  async function GetSheduledInterViews(jobId,setdata){
-    const response=fetch(API+"company/getsheduledinterViews/"+jobId,
-    {
-        method:'GET',
-        headers:{
-            'Content-Type':'application/json'
-        }
-    }
-    ).then(async res=>await res.json())
-    .then(async result=>{
-      debugger;
-       setdata(await result.data);
-    }).catch(error=>{
-      alert("Error:",error)
-    })
-  }
+  
   async function GetStudentsAppliedForJob(jobId,setdata){
     const response=fetch(API+"company/getstudentsappliedforjob/"+jobId,
     {
@@ -167,4 +152,4 @@ async function InsertInterviewData(data){
       alert("Error:",error)
     })
   }
-  export {InsertCompanyData,InsertInterviewData,InsertJob,GetSheduledInterViews,GetAllJobsByCompanyId,GetStudentsAppliedForJob,DeleteJob};
+  export {InsertCompanyData,InsertInterviewData,InsertJob,GetAllJobsByCompanyId,GetStudentsAppliedForJob};
