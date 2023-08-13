@@ -56,7 +56,8 @@ function Company() {
                     <p><FontAwesomeIcon icon="fa-solid fa-indian-rupee-sign" />{ele.phoneNumber}</p>
                     </div>
                     <div className="show-icons-flex">
-                    <a href={`${API}/student/resume/${ele.resume}`} className="btn btn-primary" download></a>
+                    <a href={`${API}/student/resume/${ele.resume}`} className="btn btn-primary" download>Resume</a>
+                    <Link to={"/company/insertinterview/"+ele.appliedId} className="btn btn-primary">Schedule Interview</Link>
                     </div>
                     <div>
                     </div>

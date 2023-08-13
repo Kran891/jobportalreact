@@ -32,7 +32,7 @@ function InsertInterview() {
       date.setMinutes(min)
       interviewData.AppliedId=appliedJob;
       interviewData.InterViewDate=date;
-      await InsertInterviewData();
+      await InsertInterviewData(interviewData);
     }
     return (
         <div className="post-job-container">
@@ -49,6 +49,7 @@ function InsertInterview() {
                     name="InterViewMode" 
                     required
                     value={interviewData.InterViewMode}
+                    onChange={handleChange}
                 >
                     <option value="" disabled defaultValue className="options-list" >Select Interview Mode</option>
                     <option value="Offline">In-Person</option>
@@ -78,7 +79,8 @@ function InsertInterview() {
                 />
                 <span id="timing-error" className="error"></span>
 
-                
+                {interviewData.InterViewMode==="Offline" &&
+                <div>
                 <label htmlFor="location">
                     <span className="location-icon">&#128205;</span>
                     Location
@@ -91,7 +93,7 @@ function InsertInterview() {
                     value={interviewData.InterViewLocation}
                 />
                 <span id="location-error" className="error"></span>
-
+                </div>}
                 <button type="submit">Schedule Interview</button>
             </form>
         </div>
