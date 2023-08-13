@@ -65,6 +65,27 @@ function Student() {
                 </div>
 
             })}
+            {!!showdata && div3 && showdata.map(ele => {
+                return <div className="show-grid-card">
+                    <h3>{ele.title}</h3>
+                    <h2>{ele.companyName}</h2>
+                    <p>Skills:{ele.requiredSkills.join()}</p>
+                    <p>CompanyLocations{ele.companyLocations}</p>
+                    <div className="show-icons-flex">
+                    {<p>Location{ele.locations}</p>} 
+                    <p>Date{ele.date}</p>
+                    <p>Mode{ele.mode}</p>
+                    </div>
+                    <div className="show-icons-flex">
+                    <p><FontAwesomeIcon icon="fa-solid fa-person-walking-arrow-right" />{ele.noOfApplicants}</p>
+                    <p><button onClick={()=>{applyjob(ele.jobId)}}>Apply Job</button></p>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+
+            })}
+
         </div>
     </div>;
 }
