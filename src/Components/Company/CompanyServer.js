@@ -88,7 +88,7 @@ async function InsertInterviewData(data){
         return result;
   
       }).catch(error=>{
-        alert("Error:",err)
+        alert("Error:",error)
       })
      
   
@@ -97,4 +97,59 @@ async function InsertInterviewData(data){
         alert("Error:",err)
     }
   }
-  export {InsertCompanyData,InsertInterviewData,InsertJob};
+  async function GetAllJobsByCompanyId(companyId,setdata){
+    const response=fetch(API+"company/getalljobsbycompanyid/"+companyId,
+    {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+    ).then(async res=>await res.json())
+    .then(async result=>{
+      debugger;
+       setdata(await result.data);
+    }).catch(error=>{
+      alert("Error:",error)
+    })
+  }
+  
+  async function GetStudentsAppliedForJob(jobId,setdata){
+    const response=fetch(API+"company/getstudentsappliedforjob/"+jobId,
+    {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+    ).then(async res=>await res.json())
+    .then(async result=>{
+      debugger;
+       setdata(await result.data);
+    }).catch(error=>{
+      alert("Error:",error)
+    })
+  }
+  async function DeleteJob(jobId,setdata){
+    const response=fetch(API+"company/deletejob/"+jobId,
+    {
+        method:'DELETE',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+    ).then(async res=>await res.json())
+    .then(async result=>{
+      debugger;
+       setdata(pv=>{
+        return {
+          ...pv.filter(x=>x.jobId!=jobId)
+        }
+       }
+
+       );
+    }).catch(error=>{
+      alert("Error:",error)
+    })
+  }
+  export {InsertCompanyData,InsertInterviewData,InsertJob,GetAllJobsByCompanyId,GetStudentsAppliedForJob};
