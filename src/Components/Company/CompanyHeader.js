@@ -11,8 +11,8 @@ function CompanyHeader(){
             <ul className="nav navbar-nav navbar-right">
 
                 <li id="home"><Link href="/">HOME</Link></li>
-                <li id="about"><button className="">InterViews</button></li>
-                <li id="contact"><button className="">CONTACT US</button></li>
+                <li id="about"><button className="btn btn-primary button-padding">INTERVIEWS</button></li>
+                <li id="contact"><button className="btn btn-primary button-padding">CONTACT US</button></li>
             </ul>
         </div>
     </nav>
