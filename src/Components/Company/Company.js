@@ -46,7 +46,7 @@ function Company() {
                     <div className="show-icons-flex">
                     <p><FontAwesomeIcon icon="fa-solid fa-person-walking-arrow-right" />{ele.noOfApplicants}</p>
                     {ele.noOfApplicants>0 &&<button onClick={()=>{showCandidets(ele.jobId)}}>Show Candidates</button>}
-                    {ele.noOfApplicants>0 &&<button onClick={()=>{showInterview(ele.jobId)}}>InterViews</button>}
+                    <button onClick={()=>{showInterview(ele.jobId)}}>InterViews</button>
                     <p><button onClick={()=>{deletejob(ele.jobId)}}>Delete Job</button></p>
                     </div>
                     <div>

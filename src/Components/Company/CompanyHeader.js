@@ -10,9 +10,9 @@ function CompanyHeader(){
             </div>
             <ul className="nav navbar-nav navbar-right">
 
-                <li id="home"><Link href="/">HOME</Link></li>
-                <li id="about"><button className="btn btn-primary button-padding">INTERVIEWS</button></li>
-                <li id="contact"><button className="btn btn-primary button-padding">CONTACT US</button></li>
+                <li id="home"><Link href="/company">HOME</Link></li>
+                <li id="about"><Link href="/company/postjob">POST JOB</Link></li>
+                <li id="contact"><button className="btn btn-primary button-padding">Logout</button></li>
             </ul>
         </div>
     </nav>
