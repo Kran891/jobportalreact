@@ -55,8 +55,9 @@ function Student() {
                     <h3>{ele.title}</h3>
                     <h2>{ele.companyName}</h2>
                     <p>Skills:{ele.requiredSkills.join()}</p>
-                    <div className="show-icons-flex">
                     <p><FontAwesomeIcon icon="fa-solid fa-location-pin" />{ele.locations}</p>
+                    <div className="show-icons-flex">
+                    
                     <p><FontAwesomeIcon icon="fa-solid fa-indian-rupee-sign" />{ele.salary}</p>
                     <p><FontAwesomeIcon icon="fa-solid fa-person-walking-arrow-right" />{ele.noOfApplicants}</p>
                     </div>

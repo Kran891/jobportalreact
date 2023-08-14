@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { InsertInterviewData } from "./CompanyServer";
 import './PostJob.css';
 
 function InsertInterview() {
     const {appliedJob}=useParams();
+    const navigate=useNavigate();
     const [interviewData,setInterviewData]=useState(
         {
             AppliedId:"",
@@ -24,6 +25,9 @@ function InsertInterview() {
             }
         })
     }
+    function navigatefun(url){
+        navigate(url);
+    }
    async function handleSubmit(event){
       event.preventDefault();
       const [hrs,min]=interviewData.ITime
@@ -32,7 +36,7 @@ function InsertInterview() {
       date.setMinutes(min)
       interviewData.AppliedId=appliedJob;
       interviewData.InterViewDate=date;
-      await InsertInterviewData(interviewData);
+      await InsertInterviewData(interviewData,navigatefun);
     }
     return (
         <div className="post-job-container">

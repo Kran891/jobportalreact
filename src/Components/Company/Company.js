@@ -5,7 +5,7 @@ import API from "../API";
 import CompanyHeader from "./CompanyHeader";
 import { DeleteJob, GetAllJobsByCompanyId, GetSheduledInterViews, GetStudentsAppliedForJob } from "./CompanyServer";
 function Company() {
-    const [showdata, setshowdata] = useState([]);
+    const [showdata, setshowdata] = useState();
     const [div1, setdiv1] = useState(true);
     const [div2, setdiv2] = useState(false);
     const [div3, setdiv3] = useState(false);
@@ -16,10 +16,11 @@ function Company() {
         x();
     }, []);
     async function showCandidets(jobId){
+      
+      await GetStudentsAppliedForJob(jobId,setshowdata);
       setdiv1(false); 
       setdiv2(true);
       setdiv3(false);
-      await GetStudentsAppliedForJob(jobId,showdata);
     }
     async function deletejob(jobId){
         await DeleteJob(jobId,showdata);
@@ -28,7 +29,7 @@ function Company() {
         setdiv1(false); 
         setdiv2(false);
         setdiv3(true);
-     await GetSheduledInterViews(jobId,showdata);
+     await GetSheduledInterViews(jobId,setshowdata);
     }
     return (
         <div>
@@ -53,19 +54,19 @@ function Company() {
                 </div>
 
             })}
-            {div2 && !!showdata && showdata.map(ele => {
+            { !!showdata && div2 && showdata.map(ele => {
                 return <div className="show-grid-card">
                     <h3>{ele.fullName}</h3>
                     
-                    <p>Skills:{ele.studentskills.join()}</p>
+                    <p>Skills:{ele.studentskills}</p>
                     <div className="show-icons-flex">
                     <p><FontAwesomeIcon icon="fa-solid fa-location-pin" />{ele.email}</p>
                     <p><FontAwesomeIcon icon="fa-solid fa-indian-rupee-sign" />{ele.phoneNumber}</p>
                     </div>
                     <div className="show-icons-flex">
-                    <p><a href={`${API}/student/resume/${ele.resume}`} className="btn btn-primary" download>Resume</a></p>
+                    <p><a href={`${API}student/resume/${ele.resume}`} className="btn btn-primary" download>Resume</a></p>
                     
-                    <p><Link to={"/company/insertinterview/"+ele.appliedId} className="btn btn-primary">Schedule Interview</Link></p>
+                    <p><Link to={"/company/insertview/"+ele.appliedId} className="btn btn-primary">Schedule Interview</Link></p>
                     </div>
                     <div>
                     </div>
@@ -76,7 +77,7 @@ function Company() {
                 return <div className="show-grid-card">
                     <h3>{ele.fullName}</h3>
                     
-                    <p>Skills:{ele.studentskills.join()}</p>
+                    <p>Skills:{ele.studentskills}</p>
                     <p>CompanyLocations{ele.companyLocations}</p>
                     <div className="show-icons-flex">
                     <p>Date{ele.interViewDate}</p>
@@ -85,7 +86,7 @@ function Company() {
                     </div>
                     <div className="show-icons-flex">
                     <p><FontAwesomeIcon icon="fa-solid fa-person-walking-arrow-right" />{ele.noOfApplicants}</p>
-                    <a href={`${API}/student/resume/${ele.resume}`} className="btn btn-primary" download>Resume</a>
+                    <a href={`${API}student/resume/${ele.resume}`} className="btn btn-primary" download>Resume</a>
                     </div>
                     <div>
                     </div>

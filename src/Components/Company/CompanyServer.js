@@ -64,12 +64,12 @@ async function InsertCompanyData(data,navigatefun){
         console.error("Error: ",err);
     }
 }
-async function InsertInterviewData(data){
+async function InsertInterviewData(data,navigatefun){
     try{
         var headers={
             
         }
-      const response=fetch(API+"company/insertcompany",
+      const response=fetch(API+"company/scheduleinterview",
       {
         method:'POST',
         headers:{
@@ -85,7 +85,7 @@ async function InsertInterviewData(data){
       }) 
       .then(async result=>{
 
-        return result;
+        navigatefun("/company");
   
       }).catch(error=>{
         alert("Error:",error)
@@ -140,6 +140,7 @@ async function InsertInterviewData(data){
     ).then(async res=>await res.json())
     .then(async result=>{
       debugger;
+      console.log(result.data);
        setdata(await result.data);
     }).catch(error=>{
       alert("Error:",error)
