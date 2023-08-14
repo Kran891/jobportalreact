@@ -118,7 +118,7 @@ function Student() {
 
                     <p>Skills:{ele.requiredSkills.join()}</p>
 
-                    <p><FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />{ele.companyLocations}</p>
+                    <p><FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />{ele.locations.join()}</p>
 
                     <div className="show-icons-flex">
 
@@ -148,7 +148,7 @@ function Student() {
 
                     <p>Skills:{ele.requiredSkills.join()}</p>
 
-                    <p>CompanyLocations{ele.companyLocations}</p>
+                    <p>CompanyLocations{ele.locations.join()}</p>
 
                     <div className="show-icons-flex">
 
