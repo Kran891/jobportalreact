@@ -10,11 +10,15 @@ import { useNavigate } from 'react-router-dom';
 import Logout from '../../logout';
 
 function Admin() {
-    if(!!localStorage.role || localStorage.role!=="admin")
-      navigate("/");
     const navigate=useNavigate();
+    
+    if(localStorage.role!=="admin")
+      debugger;
+      navigate("/");
+    
     const [disdata, setDisData] = useState([]);
     useEffect(() => {
+      
         const fetchData = async () => {
             await unverifiedCompanies(setDisData);
         };

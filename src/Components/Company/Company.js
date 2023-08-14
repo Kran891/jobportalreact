@@ -40,7 +40,7 @@ function Company() {
                     <h3>{ele.title}</h3>
                     <p>Skills:{ele.requiredSkills.join()}</p>
                     <div className="show-icons-flex">
-                    <p><FontAwesomeIcon icon="fa-solid fa-location-pin" />{ele.locations}</p>
+                    <p><FontAwesomeIcon icon="fa-solid fa-location-pin" />{ele.locations.join()}</p>
                     <p><FontAwesomeIcon icon="fa-solid fa-indian-rupee-sign" />{ele.salary}</p>
                     </div>
                     <div className="show-icons-flex">
@@ -93,6 +93,7 @@ function Company() {
                 </div>
 
             })}
+            
         </div>
         </div>
     );

@@ -9,7 +9,7 @@ function InsertCompany(){
     navigate("/");
    }
   const [cLoc,setCLoc]=useState([]);
-  const navigate=useNavigate();
+  
   const [cdata,setcdata]=useState({
     Name:"",
     Description:"",
