@@ -87,7 +87,7 @@ function Admin() {
                                 <p>
                                     <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
                                     {"Locations: " + ele.companyLocations}</p>
-                                <button>Button</button>
+                                <button>LIST ALL</button>
                             </div>
                         ))}
 
