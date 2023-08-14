@@ -6,6 +6,10 @@ import './PostJob.css';
 function InsertInterview() {
     const {appliedJob}=useParams();
     const navigate=useNavigate();
+   
+   if(localStorage.role!=="company"){
+    navigate("/");
+   }
     const [interviewData,setInterviewData]=useState(
         {
             AppliedId:"",

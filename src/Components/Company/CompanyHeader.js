@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 function CompanyHeader(){
+    var navigate=useNavigate();
+    function logoout(){
+     Logout(navigatefun);
+    }
+    function navigatefun(url){
+        navigate(url);
+    }
    return( 
    <header>
     <nav className="navbar navbar-default">
@@ -10,9 +17,9 @@ function CompanyHeader(){
             </div>
             <ul className="nav navbar-nav navbar-right">
 
-                <li id="home"><Link href="/company">HOME</Link></li>
-                <li id="about"><Link href="/company/postjob">POST JOB</Link></li>
-                <li id="contact"><button className="btn btn-primary button-padding">Logout</button></li>
+                <li id="home"><Link to="/company">HOME</Link></li>
+                <li id="about"><Link to="/company/postjob">POST JOB</Link></li>
+                <li id="contact"><button onClick={logoout} className="btn btn-primary button-padding">Logout</button></li>
             </ul>
         </div>
     </nav>

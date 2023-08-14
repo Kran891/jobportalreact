@@ -4,6 +4,10 @@ import './PostJob.css';
 import { useNavigate } from "react-router-dom";
 function PostJob() {
   var navigate=useNavigate();
+  
+   if(localStorage.role!=="company"){
+    navigate("/");
+   }
   const[RequiredSkills,setRequiredSkills]=useState([]);
   const [postjob, setpostjob] = useState({
     CompanyId: "",

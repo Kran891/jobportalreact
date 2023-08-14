@@ -9,9 +9,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt, faRupeeSign, faUsers, faBuilding } from "@fortawesome/free-solid-svg-icons";
 
 import { applyJob, GetAppliedJobs, GetInterviewsScheduled, GetJobsByYourSkills } from "./StudentServer";
+import { useNavigate } from "react-router-dom";
 
 function Student() {
-
+    const navigate=useNavigate();
+    if(!!localStorage.role || localStorage.role!=="student")
+      navigate("/");
     const [showdata, setshowdata] = useState([]);
 
     const [div1,setdiv1]=useState(true);

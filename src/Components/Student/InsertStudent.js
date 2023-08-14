@@ -4,6 +4,8 @@ import { InsertStudentData1 } from "./StudentServer";
 import { useNavigate } from "react-router-dom";
 
 function InsertStudent() {
+  if(!!localStorage.role || localStorage.role!=="student")
+      navigate("/");
   var navigate = useNavigate();
   const [skillSet, setSkillSet] = useState([]);
   const [preferredLocations, setPreferredLocations] = useState([]);

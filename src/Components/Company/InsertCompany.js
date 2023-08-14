@@ -4,6 +4,10 @@ import { InsertCompanyData } from "./CompanyServer";
 
 
 function InsertCompany(){
+   var navigate=useNavigate();
+   if(localStorage.role!=="company"){
+    navigate("/");
+   }
   const [cLoc,setCLoc]=useState([]);
   const navigate=useNavigate();
   const [cdata,setcdata]=useState({
