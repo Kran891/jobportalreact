@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 function Student() {
     const navigate=useNavigate();
-    if(!!localStorage.role || localStorage.role!=="student")
+    if( localStorage.role!=="student")
       navigate("/");
     const [showdata, setshowdata] = useState([]);
 

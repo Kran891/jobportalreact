@@ -12,9 +12,7 @@ import Logout from '../../logout';
 function Admin() {
     const navigate=useNavigate();
     
-    if(localStorage.role!=="admin")
-      debugger;
-      navigate("/");
+   
     
     const [disdata, setDisData] = useState([]);
     useEffect(() => {
