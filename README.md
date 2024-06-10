@@ -1,70 +1,74 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Job Portal FrontEnd
 
-## Available Scripts
+This a React-based project created using Create React App.
 
-In the project directory, you can run:
+**Features:**
+   - User is able to register and apply the jobs that are posted
+   - Companies can be registered and post the jobs once the company is verified by the Admin
+   - Admin can verify the Companies and check the job posted by the Company and the job posted on the current day.
+   - Company can schedule an interview if they're interested in the applications once viewing the resume
+   - User can be able to check the interviews
+schedule for him
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Client:** React, Docker, DockerHub, Jenkins, Git, GitHub
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## BackEnd Reference
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For BackEnd API please refer this repository:
+https://github.com/Kran891/JobPortalAPI.git
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install NodeJs Latest stable Version
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  cd jobportalreact
+  npm install
+```
+    
+## Run Locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the project
 
-### `npm run eject`
+```bash
+  git clone https://github.com/Kran891/jobportalreact.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Go to the project directory
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  cd jobportalreact
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Install dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+  npm install
+```
 
-## Learn More
+Start the server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+  npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Create an image using Docker and pushit DockerHub and use the image name in DockerHub to create an container instance and you can use Azure to create an container instance and run
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Github Profile
+     - [@Kranthi Kumar Gavireddy](https://www.github.com/kran891)
+-  Contact details:
+    - Kranthi Kumar GaviReddy
+      - 📞 +918688348532
+      - 📧 kranthi.gavireddy.code@gmail.com
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
